@@ -29,7 +29,7 @@ My research interests include computer vision, generative artificial intelligenc
 - *2024.06*: &nbsp;🎉🎉 Awarded BS Honors Student from Shandong University. 
 - *2024.01*: &nbsp;🎉🎉 Awarded Outstanding Graduates from Shandong University. 
 
-# 📝 Publications 
+# 📝 Selected Publications 
 \* indicates equal contribution
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ArXiv</div><img src='images/Style-Consistent.jpg' alt="sym" width="100%"></div></div>
@@ -79,14 +79,6 @@ Yunfan Zhang, **Hong Huang**, Zhiwei Xiong, Zhiqi Shen, Guosheng Lin, Hao Wang, 
 # 🎖 Honors and Awards
 - *2024.06* BS Honors Student, Shandong University. 
 - *2024.01* Outstanding Graduate, Shandong University. 
-
-<!-- # 📖 Educations
-- *2019.06 - 2022.04 (now)*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2015.09 - 2019.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  -->
-
-<!-- # 💬 Invited Talks
-- *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/) -->
 
 # 💻 Experience
 - *2023.11 - 2024.03*, Research Intern, Advisor: [Hao Wang](https://wanghao.tech/), Hong Kong University of Science and Technology (Guangzhou).
