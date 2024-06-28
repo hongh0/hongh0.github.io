@@ -32,7 +32,7 @@ My research interests include computer vision, generative artificial intelligenc
 # 📝 Publications 
 \* indicates equal contribution
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ArXiv</div><img src='images/Style-Consistent.pdf' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ArXiv</div><img src='images/Style-Consistent.jpg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 ## Style-Consistent 3D Indoor Scene Synthesis with Decoupled Objects
