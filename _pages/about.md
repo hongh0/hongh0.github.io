@@ -18,7 +18,7 @@ redirect_from:
 <span class='anchor' id='about-me'></span>
 
 
-I am currently an undergraduate student at Shandong University (SDU) majoring in Computer Science and Technology, and will be graduating in June of this year. Previously, I received my B.S. in Computer Science and Technology from Shandong University in 2024 and my B.S. with honors from Shandong University.
+I am currently working as a research assistant at Westlake University advised by IEEE Fellow [Prof. Yefeng Zheng](https://scholar.google.com/citations?hl=zh-CN&user=vAIECxgAAAAJ). Previously, I received my B.S. in Computer Science Technology from Shandong University in 2024 and B.S. with honors from Shandong University.
 
 My research interests include computer vision, generative artificial intelligence, and machine learning.
 
