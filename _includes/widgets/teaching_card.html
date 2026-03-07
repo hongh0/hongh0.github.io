@@ -19,6 +19,13 @@
                                     {% if item.date %}<span class="text-muted small ml-auto"><em>{{ item.date }}</em></span>{% endif %}
                                 </div>
                                 {% if item.institution %}<div class="small text-muted">{{ item.institution }}</div>{% endif %}
+                                {% if item.syllabus_url or item.canvas_url %}
+                                <div class="small mt-1">
+                                    {% if item.syllabus_url %}<a href="{{ item.syllabus_url }}" target="_blank" rel="noopener">Syllabus</a>{% endif %}
+                                    {% if item.syllabus_url and item.canvas_url %} · {% endif %}
+                                    {% if item.canvas_url %}<a href="{{ item.canvas_url }}" target="_blank" rel="noopener">Canvas</a>{% endif %}
+                                </div>
+                                {% endif %}
                             </div>
                         </li>
                         {% endfor %}

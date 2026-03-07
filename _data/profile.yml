@@ -66,9 +66,11 @@ awards:
 - name: Outstanding Graduate, Shandong University
   date: 2024.01
 
-# Teaching (course name, role e.g. TA/Instructor, institution, date)
-teaching: []
-# - course: "Course Name"
-#   role: "Teaching Assistant"
-#   institution: "Simon Fraser University"
-#   date: "2025 Fall"
+# Teaching (course name, role, institution, date; optional: syllabus_url, canvas_url)
+teaching:
+  - course: "CMPT 419/983 Fluid Simulation for Computer Graphics"
+    role: "Teaching Assistant"
+    institution: "Simon Fraser University"
+    date: "Fall 2025"
+    syllabus_url: "https://docs.google.com/document/d/1dLsxcdYR56br_4KcPSJyeyzk2wFCimxbQKXR1wEgzA4/edit?usp=sharing"  # Replace with your Google Doc link
+    canvas_url: "https://canvas.sfu.ca/courses/92726"
