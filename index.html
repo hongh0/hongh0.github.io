@@ -9,6 +9,7 @@ navbar_title: Home
         {% include widgets/profile_card_mini.html %}
     </div>
     <div class="col-lg-9 col-md-8">        
+        {% include widgets/profile_card_bio_only.html %}
 
         {% include widgets/research_overview.html %}
 
@@ -20,7 +21,6 @@ navbar_title: Home
         title='Selected Publications'
         %}
         {% endif %}
-        {% include widgets/profile_card_bio_only.html %}
 
         {% if site.data.display.homepage.show_experience %}
             {% include widgets/experience_card.html %}
