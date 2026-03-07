@@ -4,7 +4,7 @@ navbar_name: "Hong Huang"
 
 positions:
 - name: Ph.D. Student <br/> @ Simon Fraser University
-  logo: /assets/images/badges/SFU_logo.png  # Replace with SFU logo if you have one
+  # logo: /assets/images/badges/SFU_logo.png  
 
 location: Vancouver, Canada
 email: "hhong_@outlook.com"
@@ -27,9 +27,6 @@ short_bio: >-
   <p>
     If you have any shared research interests or topics you'd like to chat about, please feel free to <a href="mailto:hhong_@outlook.com">email me</a>. I am always happy to explore potential collaborations and engage in insightful conversations.
   </p>
-  <p>
-    <strong>Service:</strong> Conference Reviewer: ACMMM 2025, ICCV 2025.
-  </p>
 
 portrait_url: /assets/images/photos/portrait.png
 # portrait_caption: optional caption
@@ -50,17 +47,17 @@ experience:
 - name: Shanghai AI Lab
   logo: /assets/images/badges/shanghai_ai_lab_logo.png
   position: >- 
-    Research Intern <br/>(Mentor: <a href="https://shenqildr.github.io/" target="_blank">Dongrui Liu</a>)
+    Research Intern (Mentor: <a href="https://shenqildr.github.io/" target="_blank">Dongrui Liu</a>)
   date: 2025.04 - 2025.07
 - name: Westlake University
   logo: /assets/images/badges/WestlakeU_logo.png
   position: >- 
-    Research Intern <br/>(Advisor: <a href="https://scholar.google.com/citations?hl=zh-CN&user=vAIECxgAAAAJ" target="_blank">Yefeng Zheng</a>)
+    Research Intern (Advisor: <a href="https://scholar.google.com/citations?hl=zh-CN&user=vAIECxgAAAAJ" target="_blank">Yefeng Zheng</a>)
   date: 2024.09 - 2025.04
 - name: North Carolina State University
   logo: /assets/images/badges/NCState_logo.png
   position: >- 
-    Remote Research Intern <br/>(Advisor: <a href="https://research.csc.ncsu.edu/corob/index.html" target="_blank">Peng Gao</a>)
+    Remote Research Intern (Advisor: <a href="https://research.csc.ncsu.edu/corob/index.html" target="_blank">Peng Gao</a>)
   date: 2024.10 - 2025.03
 
 awards:
