@@ -49,15 +49,18 @@ education:
 experience:
 - name: Shanghai AI Lab
   logo: /assets/images/badges/shanghai_ai_lab_logo.png
-  position: Research Intern (Mentor: <a href="https://shenqildr.github.io/" target="_blank">Dongrui Liu</a>)
+  position: >- 
+    Research Intern <br/>(Mentor: <a href="https://shenqildr.github.io/" target="_blank">Dongrui Liu</a>)
   date: 2025.04 - 2025.07
 - name: Westlake University
   logo: /assets/images/badges/WestlakeU_logo.png
-  position: Research Intern (Advisor: <a href="https://scholar.google.com/citations?hl=zh-CN&user=vAIECxgAAAAJ" target="_blank">Yefeng Zheng</a>)
+  position: >- 
+    Research Intern <br/>(Advisor: <a href="https://scholar.google.com/citations?hl=zh-CN&user=vAIECxgAAAAJ" target="_blank">Yefeng Zheng</a>)
   date: 2024.09 - 2025.04
 - name: North Carolina State University
   logo: /assets/images/badges/NCState_logo.png
-  position: Remote Research Intern (Advisor: <a href="https://research.csc.ncsu.edu/corob/index.html" target="_blank">Peng Gao</a>)
+  position: >- 
+    Remote Research Intern <br/>(Advisor: <a href="https://research.csc.ncsu.edu/corob/index.html" target="_blank">Peng Gao</a>)
   date: 2024.10 - 2025.03
 
 awards:
