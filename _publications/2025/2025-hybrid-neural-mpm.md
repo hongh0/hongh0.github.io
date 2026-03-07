@@ -3,8 +3,10 @@ title:          "Hybrid Neural-MPM for Interactive Fluid Simulations in Real-Tim
 date:           2025-05-01 00:01:00 +0800
 selected:       true
 pub:            "ArXiv"
-pub_post:       "Under review"
+# pub_post:       "Under review"
 pub_date:       "2025"
+pub_ab:         "ArXiv 2025"
+
 abstract: >-
   Hybrid neural-MPM approach for interactive fluid simulations in real-time.
 cover:          /assets/images/publications/hybrid_mpm.png

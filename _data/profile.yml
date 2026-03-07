@@ -1,6 +1,6 @@
 primary_name: "Hong Huang"
 secondary_name: ""
-navbar_name: "Hong Huang"
+# navbar_name: "Hong Huang"
 
 positions:
 - name: Ph.D. Student <br/> @ Simon Fraser University
@@ -19,7 +19,7 @@ linkedin: hong-huang-159789316
 short_bio_text_justify: false
 short_bio: >-
   <p>
-    I'm currently a Ph.D. student in <a href="https://delta-lab-ai.github.io/" target="_blank">DeLTA Lab</a> at Simon Fraser University, advised by Prof. <a href="https://scholar.google.com/citations?user=RHOcEtsAAAAJ&hl=en" target="_blank">Wuyang Chen</a>. Previously, I worked closely with IEEE Fellow <a href="https://scholar.google.com/citations?hl=zh-CN&user=vAIECxgAAAAJ" target="_blank">Prof. Yefeng Zheng</a>, and I received my B.S. with honors in Computer Science from Shandong University in 2024.
+    I'm Hong Huang, a first-year Ph.D. student in <a href="https://delta-lab-ai.github.io/" target="_blank">DeLTA Lab</a> at Simon Fraser University, advised by Prof. <a href="https://scholar.google.com/citations?user=RHOcEtsAAAAJ&hl=en" target="_blank">Wuyang Chen</a>. Previously, I worked closely with IEEE Fellow <a href="https://scholar.google.com/citations?hl=zh-CN&user=vAIECxgAAAAJ" target="_blank">Prof. Yefeng Zheng</a>, and I received my B.S. with honors in Computer Science from Shandong University in 2024.
   </p>
   <p>
     My research interests include: <strong>3D Vision</strong> (3D reconstruction and 4D generation, visual generation of 4D physical world); <strong>Physics-Informed Computer Vision</strong> (learning 3D or video models integrated with physics knowledge and numerical simulation).

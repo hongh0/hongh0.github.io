@@ -4,6 +4,7 @@ date:           2025-06-01 00:01:00 +0800
 selected:       true
 pub:            "ArXiv"
 pub_date:       "2025"
+pub_ab:         "ArXiv 2025"
 abstract: >-
   Instance-aware query embedding for zero-/few-shot anomaly detection in medical domain.
 cover:          /assets/images/publications/iqe_clip.png
