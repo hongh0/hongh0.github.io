@@ -1,6 +1,6 @@
 ---
 layout: default
-title : Homepage
+title : Hong Huang
 navbar_title: Home
 ---
 
@@ -12,27 +12,18 @@ navbar_title: Home
 
         {% include widgets/profile_card_bio_only.html %}
 
-        <!-- Debugging widgets -->
-        {% include widgets/debug_repo_name.html %}
-        {% include widgets/debug_url.html %}
-
         {% if site.data.display.homepage.show_experience %}
             {% include widgets/experience_card.html %}
         {% endif %}
 
-        {% if site.data.display.homepage.show_news %}
-        {% assign count_news = site.news | size %}
-        {% if count_news > 0 %}
-        {% include widgets/news_card.html limit=site.data.display.homepage.num_news %}
-        {% endif %}
-        {% endif %}
+        {% include widgets/research_overview.html %}
 
         {% if site.data.display.homepage.show_selected_publications %}
         {% assign pubs = site.publications | sort: "date" | reverse | where: "selected", true %}
         {%
         include widgets/publication_card.html
         publications=pubs
-        title='<i class="fas fa-star"></i> Selected Publications'
+        title='Selected Publications'
         %}
         {% endif %}
     </div>

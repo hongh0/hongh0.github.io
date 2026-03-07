@@ -1,14 +1,19 @@
-<footer class="footer border-top py-2 mt-5 bg-white small">
+<footer class="footer">
     <div class="{% if page.container_class %}{{ page.container_class }}{% else %}container-lg{% endif %}">
         <div class="row my-3">
-            <div class="col-6">
-                <div class="text-muted">
-                    <i>Last updated: {{ "now" | date: "%b %Y" }}</i>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="text-right text-muted">
-                    {{ site.data.display.footer_text }}
+            <!-- Align footer content with main content column (e.g., the col-lg-9 on the homepage) -->
+            <div class="col-12 col-lg-9 ml-auto">
+                <div class="row align-items-end">
+                    <div class="col">
+                        <div class="text-muted">
+                            <i>Last updated: {{ "now" | date: "%b %Y" }}</i>
+                        </div>
+                    </div>
+                    <div class="col-auto ml-auto">
+                        <div class="text-right text-muted">
+                            {{ site.data.display.footer_text }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
