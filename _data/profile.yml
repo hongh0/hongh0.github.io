@@ -65,3 +65,10 @@ awards:
   date: 2024.06
 - name: Outstanding Graduate, Shandong University
   date: 2024.01
+
+# Teaching (course name, role e.g. TA/Instructor, institution, date)
+teaching: []
+# - course: "Course Name"
+#   role: "Teaching Assistant"
+#   institution: "Simon Fraser University"
+#   date: "2025 Fall"

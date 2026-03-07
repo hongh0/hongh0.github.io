@@ -1,0 +1,33 @@
+<style>
+    .teaching-card .custom-radius { border-radius: 15px; }
+    .teaching-card .institution-name { color: #48A6A7; font-weight: bold; }
+</style>
+<div class="row mt-3 teaching-card">
+    <div class="col">
+        <div class="card border-0 shadow-sm bg-white custom-radius">
+            <div class="card-body p-4">
+                <div class="mx-2 my-1">
+                    <h5>Teaching</h5>
+                    {% if site.data.profile.teaching and site.data.profile.teaching.size > 0 %}
+                    <ul class="list-unstyled mb-1">
+                        {% for item in site.data.profile.teaching %}
+                        <li class="media mb-2">
+                            <div class="media-body">
+                                <div class="d-flex flex-wrap align-items-baseline">
+                                    <span class="institution-name">{{ item.course }}</span>
+                                    {% if item.role %}<span class="text-muted small ml-2">({{ item.role }})</span>{% endif %}
+                                    {% if item.date %}<span class="text-muted small ml-auto"><em>{{ item.date }}</em></span>{% endif %}
+                                </div>
+                                {% if item.institution %}<div class="small text-muted">{{ item.institution }}</div>{% endif %}
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <p class="text-muted small mb-0">To be updated.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
