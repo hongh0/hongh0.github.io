@@ -41,9 +41,14 @@ education:
   date: Sep. 2020 - Jun. 2024
 
 experience:
+- name: Meta (MSL)
+  logo: /assets/images/badges/Meta.png
+  position: >-
+    Research Scientist Intern (Manager: <a href="https://yifanjiang19.github.io/" target="_blank">Yifan Jiang</a>)
+  date: 2026.05 - 2026.09
 - name: Shanghai AI Lab
   logo: /assets/images/badges/shanghai_ai_lab_logo.png
-  position: >- 
+  position: >-
     Research Intern (Mentor: <a href="https://shenqildr.github.io/" target="_blank">Dongrui Liu</a>)
   date: 2025.04 - 2025.07
 - name: Westlake University
