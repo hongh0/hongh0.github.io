@@ -4,7 +4,7 @@ secondary_name: ""
 
 positions:
 - name: Ph.D. Student <br/> @ Simon Fraser University
-  # logo: /assets/images/badges/SFU_logo.png  
+  # logo: /assets/images/badges/SFU_logo.png
 
 location: Vancouver, Canada
 email: "hhong_@outlook.com"
@@ -41,7 +41,7 @@ education:
   date: Sep. 2020 - Jun. 2024
 
 experience:
-- name: Meta (MSL)
+- name: Meta
   logo: /assets/images/badges/Meta.png
   position: >-
     Research Scientist Intern (Manager: <a href="https://yifanjiang19.github.io/" target="_blank">Yifan Jiang</a>)
@@ -53,12 +53,12 @@ experience:
   date: 2025.04 - 2025.07
 - name: Westlake University
   logo: /assets/images/badges/WestlakeU_logo.png
-  position: >- 
+  position: >-
     Research Intern (Advisor: <a href="https://scholar.google.com/citations?hl=zh-CN&user=vAIECxgAAAAJ" target="_blank">Yefeng Zheng</a>)
   date: 2024.09 - 2025.04
 - name: North Carolina State University
   logo: /assets/images/badges/NCState_logo.png
-  position: >- 
+  position: >-
     Remote Research Intern (Advisor: <a href="https://research.csc.ncsu.edu/corob/index.html" target="_blank">Peng Gao</a>)
   date: 2024.10 - 2025.03
 
