@@ -2,7 +2,7 @@
 title:          "Non-Overlap-Aware Egocentric Pose Estimation for Collaborative Perception in Connected Autonomy"
 date:           2025-06-01 00:01:00 +0800
 selected:       true
-pub:            "2025 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)"
+pub:            "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)"
 pub_last:       ' <span class="badge badge-pill badge-publication badge-success">Oral</span>'
 pub_date:       "2025"
 pub_ab:         "IROS 2025"

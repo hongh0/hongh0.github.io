@@ -2,7 +2,7 @@
 title:          "IQE-CLIP: Instance-aware Query Embedding for Zero-/Few-shot Anomaly Detection in Medical Domain"
 date:           2025-06-01 00:01:00 +0800
 selected:       true
-pub:            "TIP"
+pub:            "IEEE Transactions on Image Processing"
 pub_date:       "2026"
 pub_ab:         "TIP 2026"
 abstract: >-
