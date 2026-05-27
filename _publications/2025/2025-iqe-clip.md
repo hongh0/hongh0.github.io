@@ -12,7 +12,6 @@ authors:
   - Hong Huang
   - Weixiang Sun
   - Zhijian Wu
-  - Jingwen Niu
   - Donghuan Lu
   - Xian Wu
   - Yefeng Zheng
