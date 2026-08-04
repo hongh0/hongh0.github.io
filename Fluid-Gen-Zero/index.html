@@ -9,13 +9,13 @@
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
 </head>
 <body>
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-menu is-active">
     <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="#top"><span class="icon"><i class="fas fa-home"></i></span></a>
       <a class="navbar-item" href="#results">Results</a>
       <a class="navbar-item" href="#bibtex">BibTeX</a>
     </div>
@@ -30,7 +30,7 @@
         <div class="is-size-5 publication-authors">
           <span class="author-block"><a href="https://hongh0.github.io/">Hong Huang</a><sup>1</sup>,</span>
           <span class="author-block"><a href="https://autumnyq.github.io/">Yuqiu Liu</a><sup>1</sup>,</span>
-          <span class="author-block"><a href="https://www.stonybrook.edu/ams/faculty/faculty-profiles/chenyu-you.html">Chenyu You</a><sup>2</sup>,</span>
+          <span class="author-block"><a href="https://chenyuyou.me/">Chenyu You</a><sup>2</sup>,</span>
           <span class="author-block"><a href="#" onclick="return false;">Daniel F Martin</a><sup>3</sup>,</span>
           <span class="author-block"><a href="https://zouchuhang.github.io/">Chuhang Zou</a><sup>4</sup><sup>†</sup>,</span>
           <span class="author-block"><a href="https://chenwydj.github.io/">Wuyang Chen</a><sup>1</sup><sup>†</sup></span>
@@ -129,5 +129,13 @@
   year      = {2026},
 }</code></pre></div></section>
 <footer class="footer"><div class="container"><div class="content has-text-centered"><p>Fluid-Gen-Zero</p><p>Website adapted from the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies project page template</a>.</p></div></div></footer>
+<script>
+  document.querySelectorAll('video').forEach(function (video) {
+    video.autoplay = true;
+    video.loop = true;
+    video.muted = true;
+    video.play().catch(function () {});
+  });
+</script>
 </body>
 </html>
