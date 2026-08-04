@@ -172,6 +172,9 @@ body {
 .case-block { background: #fff; border: 1px solid #e5e9ef; border-radius: 16px; padding: 1.5rem; margin: 2rem 0 3rem; box-shadow: 0 5px 20px rgba(30, 45, 65, .05); }
 .case-block h3 { margin-bottom: .35rem; }
 .case-caption { color: #5f6b78; margin-bottom: 1.25rem; }
+.paper-figure { margin: 2rem 0 .5rem; text-align: center; }
+.paper-figure img { display: block; width: 100%; height: auto; border-radius: 8px; }
+.paper-figure figcaption { margin: .75rem auto 0; max-width: 95%; color: #5f6b78; font-size: .9rem; line-height: 1.45; text-align: left; }
 .video-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
 .video-card { margin: 0; overflow: hidden; border: 1px solid #dfe5eb; border-radius: 12px; background: #fff; }
 .video-card video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: contain; background: #101820; }
