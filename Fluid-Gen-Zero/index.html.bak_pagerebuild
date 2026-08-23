@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Fluid-Gen-Zero: Grounding Pretrained Video Generators in Physics without Training.">
+  <meta name="keywords" content="Fluid-Gen-Zero, physics-aware video generation, fluid simulation, video generation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fluid-Gen-Zero</title>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+</head>
+<body>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-menu is-active">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="#results">Results</a>
+      <a class="navbar-item" href="#bibtex">BibTeX</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" id="top">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="has-text-centered">
+        <h1 class="title is-1 publication-title">Fluid-Gen-Zero: Grounding Pretrained Video Generators in Physics without Training</h1>
+        <div class="is-size-5 publication-authors">
+          <span class="author-block"><a href="https://hongh0.github.io/">Hong Huang</a><sup>1</sup>,</span>
+          <span class="author-block"><a href="https://autumnyq.github.io/">Yuqiu Liu</a><sup>1</sup>,</span>
+          <span class="author-block"><a href="https://chenyuyou.me/">Chenyu You</a><sup>2</sup>,</span>
+          <span class="author-block"><a href="#" onclick="return false;">Daniel F Martin</a><sup>3</sup>,</span>
+          <span class="author-block"><a href="https://zouchuhang.github.io/">Chuhang Zou</a><sup>4</sup><sup>†</sup>,</span>
+          <span class="author-block"><a href="https://chenwydj.github.io/">Wuyang Chen</a><sup>1</sup><sup>†</sup></span>
+        </div>
+        <div class="is-size-5 publication-authors"><sup>1</sup>Simon Fraser University &nbsp; <sup>2</sup>Stony Brook University &nbsp; <sup>3</sup>Lawrence Berkeley National Lab &nbsp; <sup>4</sup>Meta Reality Labs</div>
+        <div class="is-size-6 publication-authors correspondence">† Correspondence</div>
+        <div class="publication-links">
+          <span class="link-block"><a class="external-link button is-dark is-rounded" href="./paper.pdf"><span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span></a></span>
+          <span class="link-block"><a class="external-link button is-dark is-rounded" href="https://github.com/hongh0/Fluid-Gen-Zero"><span class="icon"><i class="fab fa-github"></i></span><span>Code</span></a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="teaser-card">
+        <div class="teaser-copy"><span class="dnerf">Fluid-Gen-Zero</span> brings simulation-grounded physical control to pretrained video generators without updating their parameters.</div>
+        <div class="teaser-pills"><span>Training-free</span><span>Simulation-grounded</span><span>Plug-and-play</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="abstract">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered"><div class="column is-four-fifths">
+      <h2 class="title is-3">Abstract</h2>
+      <div class="content has-text-justified">
+        <p>We present <strong>Fluid-Gen-Zero</strong>, a training-free framework for physics-aware fluid video generation that decouples physical reasoning from appearance synthesis. Our key insight is to delegate motion dynamics to a physics simulator while preserving the appearance modeling capacity of pretrained video generators.</p>
+        <p>We bridge these two domains through a two-level agentic workflow: <em>generation-time planning</em>, where a rule-grounded VLM agent parses intent, observes simulation evidence, and organizes generation into physically feasible clips, and <em>latent-space guidance</em>, which injects simulation-derived signals into denoising via region-aware latent wrapping. This plug-and-play design is compatible with modern video models and improves both physical alignment and visual quality without training.</p>
+      </div>
+      <figure class="paper-figure">
+        <img src="./static/images/motivation.png" alt="Comparison between training-based and training-free physics-aware video generation.">
+        <figcaption><strong>Training-based vs. training-free physics-aware video generation.</strong> Existing approaches rely on architecture-coupled post-training, while Fluid-Gen-Zero decouples physical reasoning from appearance synthesis and introduces physics awareness entirely at inference time.</figcaption>
+      </figure>
+    </div></div>
+    <div class="columns is-centered"><div class="column is-four-fifths">
+      <div class="method-strip"><div><strong>Simulation</strong><br><span>structured dynamics</span></div><i class="fas fa-arrow-right"></i><div><strong>Agentic planning</strong><br><span>event-aware clips</span></div><i class="fas fa-arrow-right"></i><div><strong>Latent guidance</strong><br><span>appearance synthesis</span></div></div>
+      <figure class="paper-figure">
+        <img src="./static/images/pipeline.png" alt="Fluid-Gen-Zero pipeline from input image and prompt through simulation, agentic planning, latent control, and video generation.">
+        <figcaption><strong>Fluid-Gen-Zero pipeline.</strong> Starting from an input image and text prompt, the method reconstructs a simulatable 3D scene, rolls out fluid-object dynamics, and guides a frozen video foundation model through generation-level planning and latent-level control.</figcaption>
+      </figure>
+    </div></div>
+  </div>
+</section>
+
+<section class="section results-section" id="results">
+  <div class="container is-max-desktop">
+    <div class="has-text-centered section-heading"><h2 class="title is-3">Qualitative Results</h2><p>Each case compares the physics simulation with generated videos from Fluid-Gen-Zero and representative baselines.</p></div>
+
+    <div class="case-block"><p class="case-caption">A fluid-object interaction where the generated motion follows the simulated contact and splash dynamics.</p><div class="video-grid">
+      <figure class="video-card simulation-card"><video controls muted loop playsinline preload="metadata"><source src="./static/videos/cases/item17/simulation.mp4" type="video/mp4"></video><figcaption><strong>Simulation</strong><br>Physics rollout used as the structural motion reference.</figcaption></figure>
+      <figure class="video-card ours-card"><video controls muted loop playsinline preload="metadata"><source src="./static/videos/cases/item17/agent_tora.mp4" type="video/mp4"></video><figcaption><strong>Fluid-Gen-Zero (Tora)</strong><br>Training-free generation guided by simulation-aware planning and latent control.</figcaption></figure>
+      <figure class="video-card ours-card"><video controls muted loop playsinline preload="metadata"><source src="./static/videos/cases/item17/agent_vace.mp4" type="video/mp4"></video><figcaption><strong>Fluid-Gen-Zero (VACE)</strong><br>Simulation-grounded generation with the VACE backbone.</figcaption></figure>
+      <figure class="video-card"><video controls muted loop playsinline preload="metadata"><source src="./static/videos/cases/item17/tora.mp4" type="video/mp4"></video><figcaption><strong>Tora</strong><br>Base video generator without our physics-aware control.</figcaption></figure>
+      <figure class="video-card"><video controls muted loop playsinline preload="metadata"><source src="./static/videos/cases/item17/vace.mp4" type="video/mp4"></video><figcaption><strong>VACE</strong><br>Base VACE generation without our physics-aware control.</figcaption></figure>
+      <figure class="video-card"><video controls muted loop playsinline preload="metadata"><source src="./static/videos/cases/item17/wanmove.mp4" type="video/mp4"></video><figcaption><strong>WanMove</strong><br>Large-scale motion-conditioned video baseline.</figcaption></figure>
+    </div></div>
+
+    <div class="case-block"><p class="case-caption">A ship scene with fluid motion and object movement constrained by the corresponding simulated rollout.</p><div class="video-grid">
+      <figure class="video-card simulation-card"><video controls muted loop playsinline preload="metadata"><source src="./static/videos/cases/ship/simulation.mp4" type="video/mp4"></video><figcaption><strong>Simulation</strong><br>Physics rollout used as the structural motion reference.</figcaption></figure>
+      <figure class="video-card ours-card"><video controls muted loop playsinline preload="metadata"><source src="./static/videos/cases/ship/agent_tora.mp4" type="video/mp4"></video><figcaption><strong>Fluid-Gen-Zero (Tora)</strong><br>Training-free simulation-grounded generation.</figcaption></figure>
+      <figure class="video-card ours-card"><video controls muted loop playsinline preload="metadata"><source src="./static/videos/cases/ship/agent_vace.mp4" type="video/mp4"></video><figcaption><strong>Fluid-Gen-Zero (VACE)</strong><br>Simulation-grounded generation with VACE.</figcaption></figure>
+      <figure class="video-card"><video controls muted loop playsinline preload="metadata"><source src="./static/videos/cases/ship/tora.mp4" type="video/mp4"></video><figcaption><strong>Tora</strong><br>Base video generator.</figcaption></figure>
+      <figure class="video-card"><video controls muted loop playsinline preload="metadata"><source src="./static/videos/cases/ship/vace.mp4" type="video/mp4"></video><figcaption><strong>VACE</strong><br>Base VACE generation.</figcaption></figure>
+      <figure class="video-card"><video controls muted loop playsinline preload="metadata"><source src="./static/videos/cases/ship/wanmove.mp4" type="video/mp4"></video><figcaption><strong>WanMove</strong><br>Motion-conditioned baseline.</figcaption></figure>
+    </div></div>
+
+    <div class="case-block"><p class="case-caption">The simulator provides explicit dynamics while the pretrained generators supply photorealistic appearance.</p><div class="video-grid">
+      <figure class="video-card simulation-card"><video controls muted loop playsinline preload="metadata"><source src="./static/videos/cases/item16/simulation.mp4" type="video/mp4"></video><figcaption><strong>Simulation</strong><br>Physics rollout used as the structural motion reference.</figcaption></figure>
+      <figure class="video-card ours-card"><video controls muted loop playsinline preload="metadata"><source src="./static/videos/cases/item16/agent_tora.mp4" type="video/mp4"></video><figcaption><strong>Fluid-Gen-Zero (Tora)</strong><br>Training-free simulation-grounded generation.</figcaption></figure>
+      <figure class="video-card ours-card"><video controls muted loop playsinline preload="metadata"><source src="./static/videos/cases/item16/agent_vace.mp4" type="video/mp4"></video><figcaption><strong>Fluid-Gen-Zero (VACE)</strong><br>Simulation-grounded generation with VACE.</figcaption></figure>
+      <figure class="video-card"><video controls muted loop playsinline preload="metadata"><source src="./static/videos/cases/item16/tora.mp4" type="video/mp4"></video><figcaption><strong>Tora</strong><br>Base video generator.</figcaption></figure>
+      <figure class="video-card"><video controls muted loop playsinline preload="metadata"><source src="./static/videos/cases/item16/vace.mp4" type="video/mp4"></video><figcaption><strong>VACE</strong><br>Base VACE generation.</figcaption></figure>
+      <figure class="video-card"><video controls muted loop playsinline preload="metadata"><source src="./static/videos/cases/item16/wanmove.mp4" type="video/mp4"></video><figcaption><strong>WanMove</strong><br>Motion-conditioned baseline.</figcaption></figure>
+    </div></div>
+
+    <div class="case-block"><p class="case-caption">An additional fluid-object interaction illustrating the consistency of physics-aware control across scenes.</p><div class="video-grid">
+      <figure class="video-card simulation-card"><video controls muted loop playsinline preload="metadata"><source src="./static/videos/cases/item9/simulation.mp4" type="video/mp4"></video><figcaption><strong>Simulation</strong><br>Physics rollout used as the structural motion reference.</figcaption></figure>
+      <figure class="video-card ours-card"><video controls muted loop playsinline preload="metadata"><source src="./static/videos/cases/item9/agent_tora.mp4" type="video/mp4"></video><figcaption><strong>Fluid-Gen-Zero (Tora)</strong><br>Training-free simulation-grounded generation.</figcaption></figure>
+      <figure class="video-card ours-card"><video controls muted loop playsinline preload="metadata"><source src="./static/videos/cases/item9/agent_vace.mp4" type="video/mp4"></video><figcaption><strong>Fluid-Gen-Zero (VACE)</strong><br>Simulation-grounded generation with VACE.</figcaption></figure>
+      <figure class="video-card"><video controls muted loop playsinline preload="metadata"><source src="./static/videos/cases/item9/tora.mp4" type="video/mp4"></video><figcaption><strong>Tora</strong><br>Base video generator.</figcaption></figure>
+      <figure class="video-card"><video controls muted loop playsinline preload="metadata"><source src="./static/videos/cases/item9/vace.mp4" type="video/mp4"></video><figcaption><strong>VACE</strong><br>Base VACE generation.</figcaption></figure>
+      <figure class="video-card"><video controls muted loop playsinline preload="metadata"><source src="./static/videos/cases/item9/wanmove.mp4" type="video/mp4"></video><figcaption><strong>WanMove</strong><br>Motion-conditioned baseline.</figcaption></figure>
+    </div></div>
+  </div>
+</section>
+
+<section class="section" id="bibtex"><div class="container is-max-desktop content"><h2 class="title">BibTeX</h2><pre><code>@inproceedings{fluidgenzero2026,
+  title     = {Fluid-Gen-Zero: Grounding Pretrained Video Generators in Physics without Training},
+  author    = {Huang, Hong and Liu, Yuqiu and You, Chenyu and Martin, Daniel F and Zou, Chuhang and Chen, Wuyang},
+  booktitle = {arXiv},
+  year      = {2026},
+}</code></pre></div></section>
+<footer class="footer"><div class="container"><div class="content has-text-centered"><p>Fluid-Gen-Zero</p><p>Website adapted from the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies project page template</a>.</p></div></div></footer>
+<script>
+  document.querySelectorAll('video').forEach(function (video) {
+    video.autoplay = true;
+    video.loop = true;
+    video.muted = true;
+    video.play().catch(function () {});
+  });
+</script>
+</body>
+</html>

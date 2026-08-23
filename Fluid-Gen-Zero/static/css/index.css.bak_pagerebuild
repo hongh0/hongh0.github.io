@@ -191,36 +191,3 @@ body {
   .method-strip i { transform: rotate(90deg); }
   .video-grid { grid-template-columns: 1fr; }
 }
-
-/* ---- rebuilt results grid ------------------------------------------- */
-.case-nav { position: sticky; top: 0; z-index: 20; display: flex; flex-wrap: wrap;
-  justify-content: center; gap: .4rem; padding: .7rem .5rem; margin-bottom: 1.5rem;
-  background: rgba(250,251,252,.94); backdrop-filter: blur(6px);
-  border-bottom: 1px solid #e5e9ef; }
-.case-nav a { font: .85rem 'Google Sans', sans-serif; color: #45566b; padding: .25rem .7rem;
-  border: 1px solid #dfe5eb; border-radius: 999px; background: #fff; }
-.case-nav a:hover { border-color: #74b4a4; color: #2b7a66; }
-.case-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-.case-id { font: 600 1.15rem 'Google Sans', sans-serif; color: #1f2937; margin: 0; }
-.replay-btn { border: 1px solid #dfe5eb; border-radius: 999px; background: #fff;
-  color: #5f6b78; font-size: .8rem; padding: .3rem .8rem; cursor: pointer; white-space: nowrap; }
-.replay-btn:hover { border-color: #74b4a4; color: #2b7a66; }
-.case-caption { margin: .5rem 0 1.1rem; }
-.row-label { font: 600 .78rem 'Google Sans', sans-serif; letter-spacing: .07em;
-  text-transform: uppercase; color: #8a96a4; margin: 1.3rem 0 .6rem; }
-.row-label span { text-transform: none; letter-spacing: 0; font-weight: 400; color: #9aa5b1; }
-.video-grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.backbone-row { display: flex; gap: 1rem; }
-.backbone-col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: .6rem; }
-.backbone-row:has(.backbone-col:only-child) { justify-content: center; }
-.backbone-col:only-child { flex: 0 1 min(46%, 520px); }
-.video-card figcaption { min-height: 0; }
-.video-card figcaption span { display: block; margin-top: .15rem; }
-.input-card img { display: block; width: 100%; aspect-ratio: 16 / 9;
-  object-fit: contain; background: #101820; }
-.input-card { border-color: #b9c6d4; }
-.input-card figcaption { background: #f6f8fa; }
-@media screen and (max-width: 800px) {
-  .backbone-row { flex-direction: column; }
-  .video-grid.cols-2 { grid-template-columns: 1fr; }
-}
