@@ -11,13 +11,12 @@
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link rel="stylesheet" href="./static/css/index.css?v=4420faa448">
+  <link rel="stylesheet" href="./static/css/index.css?v=589bf281df">
 </head>
 <body>
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-menu is-active">
     <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="#showcase">Showcase</a>
       <a class="navbar-item" href="#results">Results</a>
       <a class="navbar-item" href="#bibtex">BibTeX</a>
     </div>
@@ -82,46 +81,11 @@
   </div>
 </section>
 
-<section class="section showcase-section" id="showcase">
-  <div class="container">
-    <div class="has-text-centered section-heading">
-      <h2 class="title is-3">Showcase Scenes</h2>
-      <p>Two scenes outside the benchmark set. The still is the first frame the
-         generator starts from &mdash; press play to run the simulation-guided result.</p>
-    </div>
-    <div class="showcase-tabs"><button class="showcase-tab is-active" type="button" data-scene="040">Apple in cider</button><button class="showcase-tab" type="button" data-scene="041">Paper lantern</button></div>
-    <div class="showcase-scenes">
-        <div class="showcase-scene is-active" data-scene="040">
-          <div class="showcase-stage" data-stage>
-            <video class="showcase-video" muted loop playsinline preload="none"
-                   poster="./static/images/posters/040/ours_vace.jpg"
-                   data-src="./static/videos/cases/040/ours_vace.mp4"></video>
-            <button class="showcase-play" type="button" aria-label="Play this scene">
-              <i class="fas fa-play"></i><span>Bring the scene to life</span>
-            </button>
-          </div>
-          <p class="showcase-caption"><strong>Ours (VACE)</strong> &mdash; &ldquo;An apple falls into a vat of cider, sending up a spray.&rdquo;</p>
-        </div>
-        <div class="showcase-scene" data-scene="041">
-          <div class="showcase-stage" data-stage>
-            <video class="showcase-video" muted loop playsinline preload="none"
-                   poster="./static/images/posters/041/ours_wanmove.jpg"
-                   data-src="./static/videos/cases/041/ours_wanmove.mp4"></video>
-            <button class="showcase-play" type="button" aria-label="Play this scene">
-              <i class="fas fa-play"></i><span>Bring the scene to life</span>
-            </button>
-          </div>
-          <p class="showcase-caption"><strong>Ours (WanMove)</strong> &mdash; &ldquo;A square paper lantern is moving on river. Water surface ripples follow the motion. Twilight, cinematic realism.&rdquo;</p>
-        </div>
-    </div>
-  </div>
-</section>
-
 <section class="section results-section" id="results">
   <div class="container is-fluid">
     <div class="has-text-centered section-heading">
       <h2 class="title is-3">Qualitative Results</h2>
-      <p>Ten benchmark scenes. Every clip runs at the frame rate of the
+      <p>Twelve benchmark scenes. Every clip runs at the frame rate of the
          simulation, and each baseline sits directly beside the corresponding
          Fluid-Gen-Zero result.</p>
     </div>
@@ -167,6 +131,14 @@
         <p class="row-prompt">Bird's-eye view of a shiny green coconut partially submerged in a high-contrast pool of milky juice.</p>
         <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/035/simulation.jpg" data-src="./static/videos/cases/035/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/035/physgen3d.jpg" data-src="./static/videos/cases/035/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/035/wonderplay.jpg" data-src="./static/videos/cases/035/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/035/baseline_vace.jpg" data-src="./static/videos/cases/035/baseline_vace.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/035/ours_vace.jpg" data-src="./static/videos/cases/035/ours_vace.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/035/baseline_tora.jpg" data-src="./static/videos/cases/035/baseline_tora.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/035/ours_tora.jpg" data-src="./static/videos/cases/035/ours_tora.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/035/baseline_wanmove.jpg" data-src="./static/videos/cases/035/baseline_wanmove.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/035/ours_wanmove.jpg" data-src="./static/videos/cases/035/ours_wanmove.mp4"></video></div></div>
       </div>
+      <div class="row-container">
+        <p class="row-prompt">An apple falls into a vat of cider, sending up a spray.</p>
+        <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/040/simulation.jpg" data-src="./static/videos/cases/040/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/040/physgen3d.jpg" data-src="./static/videos/cases/040/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/040/wonderplay.jpg" data-src="./static/videos/cases/040/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/040/baseline_vace.jpg" data-src="./static/videos/cases/040/baseline_vace.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/040/ours_vace.jpg" data-src="./static/videos/cases/040/ours_vace.mp4"></video></div><div class="grid-item is-na" title="Tora was not run on this scene"></div><div class="grid-item is-na" title="Ours (Tora) was not run on this scene"></div><div class="grid-item is-na" title="WanMove was not run on this scene"></div><div class="grid-item is-na" title="Ours (WanMove) was not run on this scene"></div></div>
+      </div>
+      <div class="row-container">
+        <p class="row-prompt">A square paper lantern is moving on river.</p>
+        <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/041/simulation.jpg" data-src="./static/videos/cases/041/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/041/physgen3d.jpg" data-src="./static/videos/cases/041/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/041/wonderplay.jpg" data-src="./static/videos/cases/041/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/041/baseline_vace.jpg" data-src="./static/videos/cases/041/baseline_vace.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/041/ours_vace.jpg" data-src="./static/videos/cases/041/ours_vace.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/041/baseline_tora.jpg" data-src="./static/videos/cases/041/baseline_tora.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/041/ours_tora.jpg" data-src="./static/videos/cases/041/ours_tora.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/041/baseline_wanmove.jpg" data-src="./static/videos/cases/041/baseline_wanmove.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/041/ours_wanmove.jpg" data-src="./static/videos/cases/041/ours_wanmove.mp4"></video></div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -179,9 +151,9 @@
 }</code></pre></div></section>
 <footer class="footer"><div class="container"><div class="content has-text-centered"><p>Fluid-Gen-Zero</p><p>Website adapted from the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies project page template</a>.</p></div></div></footer>
 <script>
-// Rows are fetched just before they scroll into view and paused once they
-// leave; a hundred-odd clips cannot all decode at once. Every video in a row
-// starts together, which is what makes the columns comparable.
+// A hundred-odd clips cannot all decode at once, so each row is fetched just
+// before it scrolls into view and paused again once it leaves. Every video in
+// a row starts together, which is what makes the columns comparable.
 (function () {
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
@@ -197,44 +169,6 @@
     });
   }, { rootMargin: '500px 0px' });
   document.querySelectorAll('.row-container').forEach(function (r) { io.observe(r); });
-})();
-
-// Showcase: tabs pick a scene, the still plays on demand. Nothing is fetched
-// until asked for, so the section costs nothing to scroll past.
-(function () {
-  var scenes = document.querySelectorAll('.showcase-scene');
-  if (!scenes.length) return;
-
-  function start(scene) {
-    var v = scene.querySelector('video');
-    if (v.dataset.src) { v.src = v.dataset.src; delete v.dataset.src; }
-    scene.querySelector('.showcase-stage').classList.add('is-playing');
-    v.play().catch(function () {});
-  }
-
-  scenes.forEach(function (scene) {
-    scene.querySelector('.showcase-stage').addEventListener('click', function () {
-      start(scene);
-    });
-  });
-
-  document.querySelectorAll('.showcase-tab').forEach(function (tab) {
-    tab.addEventListener('click', function () {
-      var id = tab.dataset.scene;
-      document.querySelectorAll('.showcase-tab').forEach(function (t) {
-        t.classList.toggle('is-active', t === tab);
-      });
-      scenes.forEach(function (s) {
-        var on = s.dataset.scene === id;
-        s.classList.toggle('is-active', on);
-        if (!on) {
-          var v = s.querySelector('video');
-          v.pause();
-          s.querySelector('.showcase-stage').classList.remove('is-playing');
-        }
-      });
-    });
-  });
 })();
 </script>
 </body>

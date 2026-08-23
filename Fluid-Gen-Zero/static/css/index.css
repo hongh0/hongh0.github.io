@@ -140,3 +140,37 @@ body { background: var(--bg); font-family: var(--font-sans); color: var(--body);
   .column-headers, .results-grid { grid-template-columns: repeat(2, 1fr); }
   .teaser-copy { font-size: 1.15rem; }
 }
+
+/* ---- showcase scenes -------------------------------------------------- */
+.showcase-section { background: var(--bg-alt); }
+.showcase-section .container { max-width: 1000px; }
+.showcase-tabs { display: flex; justify-content: center; gap: .6rem; margin-bottom: 1.4rem; }
+.showcase-tab { font-family: var(--font-sans); font-weight: 600; font-size: .92rem;
+  padding: .55rem 1.4rem; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--border); background: #fff; color: var(--ink);
+  transition: background .2s ease, color .2s ease, box-shadow .2s ease; }
+.showcase-tab:hover { border-color: var(--accent-dk); }
+.showcase-tab.is-active { background: linear-gradient(135deg, var(--accent), var(--accent-dk));
+  border-color: transparent; color: #fff; box-shadow: 0 6px 16px rgba(58,108,152,.24); }
+
+.showcase-scene { display: none; }
+.showcase-scene.is-active { display: block; }
+.showcase-stage { position: relative; border-radius: 12px; overflow: hidden;
+  border: 1px solid var(--border); background: var(--bg-alt); cursor: pointer;
+  box-shadow: 0 10px 28px rgba(31,45,61,.12); }
+.showcase-stage video { display: block; width: 100%; aspect-ratio: 16 / 10;
+  object-fit: contain; background: var(--bg-alt); }
+.showcase-play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  display: inline-flex; align-items: center; gap: .55rem; cursor: pointer;
+  font-family: var(--font-sans); font-weight: 600; font-size: .95rem; color: #fff;
+  padding: .7rem 1.5rem; border-radius: 999px; border: 1px solid rgba(255,255,255,.4);
+  background: rgba(31,45,61,.72); backdrop-filter: blur(6px);
+  box-shadow: 0 8px 22px rgba(0,0,0,.28); transition: opacity .3s ease, transform .2s ease; }
+.showcase-stage:hover .showcase-play { transform: translate(-50%, -50%) scale(1.04);
+  background: var(--accent-dk); }
+.showcase-stage.is-playing .showcase-play { opacity: 0; pointer-events: none; }
+.showcase-caption { margin: .9rem auto 0; text-align: center; max-width: 800px;
+  font-family: var(--font-prompt); font-style: italic; color: var(--body);
+  font-size: .95rem; line-height: 1.6; }
+.showcase-caption strong { font-family: var(--font-sans); font-style: normal;
+  font-weight: 700; color: var(--accent-dk); }
