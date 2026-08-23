@@ -59,6 +59,29 @@
   </div>
 </section>
 
+<section class="section" id="abstract">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered"><div class="column is-four-fifths">
+      <h2 class="title is-3">Abstract</h2>
+      <div class="content has-text-justified">
+        <p>We present <strong>Fluid-Gen-Zero</strong>, a training-free framework for physics-aware fluid video generation that decouples physical reasoning from appearance synthesis. Our key insight is to delegate motion dynamics to a physics simulator while preserving the appearance modeling capacity of pretrained video generators.</p>
+        <p>We bridge these two domains through a two-level agentic workflow: <em>generation-time planning</em>, where a rule-grounded VLM agent parses intent, observes simulation evidence, and organizes generation into physically feasible clips, and <em>latent-space guidance</em>, which injects simulation-derived signals into denoising via region-aware latent wrapping. This plug-and-play design is compatible with modern video models and improves both physical alignment and visual quality without training.</p>
+      </div>
+      <figure class="paper-figure">
+        <img src="./static/images/motivation.png" alt="Comparison between training-based and training-free physics-aware video generation.">
+        <figcaption><strong>Training-based vs. training-free physics-aware video generation.</strong> Existing approaches rely on architecture-coupled post-training, while Fluid-Gen-Zero decouples physical reasoning from appearance synthesis and introduces physics awareness entirely at inference time.</figcaption>
+      </figure>
+    </div></div>
+    <div class="columns is-centered"><div class="column is-four-fifths">
+      <div class="method-strip"><div><strong>Simulation</strong><br><span>structured dynamics</span></div><i class="fas fa-arrow-right"></i><div><strong>Agentic planning</strong><br><span>event-aware clips</span></div><i class="fas fa-arrow-right"></i><div><strong>Latent guidance</strong><br><span>appearance synthesis</span></div></div>
+      <figure class="paper-figure">
+        <img src="./static/images/pipeline.png" alt="Fluid-Gen-Zero pipeline from input image and prompt through simulation, agentic planning, latent control, and video generation.">
+        <figcaption><strong>Fluid-Gen-Zero pipeline.</strong> Starting from an input image and text prompt, the method reconstructs a simulatable 3D scene, rolls out fluid-object dynamics, and guides a frozen video foundation model through generation-level planning and latent-level control.</figcaption>
+      </figure>
+    </div></div>
+  </div>
+</section>
+
 <section class="section showcase-section" id="interactive">
   <div class="container">
     <div class="has-text-centered section-heading">
@@ -91,29 +114,6 @@
           </div>
         </div>
     </div>
-  </div>
-</section>
-
-<section class="section" id="abstract">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered"><div class="column is-four-fifths">
-      <h2 class="title is-3">Abstract</h2>
-      <div class="content has-text-justified">
-        <p>We present <strong>Fluid-Gen-Zero</strong>, a training-free framework for physics-aware fluid video generation that decouples physical reasoning from appearance synthesis. Our key insight is to delegate motion dynamics to a physics simulator while preserving the appearance modeling capacity of pretrained video generators.</p>
-        <p>We bridge these two domains through a two-level agentic workflow: <em>generation-time planning</em>, where a rule-grounded VLM agent parses intent, observes simulation evidence, and organizes generation into physically feasible clips, and <em>latent-space guidance</em>, which injects simulation-derived signals into denoising via region-aware latent wrapping. This plug-and-play design is compatible with modern video models and improves both physical alignment and visual quality without training.</p>
-      </div>
-      <figure class="paper-figure">
-        <img src="./static/images/motivation.png" alt="Comparison between training-based and training-free physics-aware video generation.">
-        <figcaption><strong>Training-based vs. training-free physics-aware video generation.</strong> Existing approaches rely on architecture-coupled post-training, while Fluid-Gen-Zero decouples physical reasoning from appearance synthesis and introduces physics awareness entirely at inference time.</figcaption>
-      </figure>
-    </div></div>
-    <div class="columns is-centered"><div class="column is-four-fifths">
-      <div class="method-strip"><div><strong>Simulation</strong><br><span>structured dynamics</span></div><i class="fas fa-arrow-right"></i><div><strong>Agentic planning</strong><br><span>event-aware clips</span></div><i class="fas fa-arrow-right"></i><div><strong>Latent guidance</strong><br><span>appearance synthesis</span></div></div>
-      <figure class="paper-figure">
-        <img src="./static/images/pipeline.png" alt="Fluid-Gen-Zero pipeline from input image and prompt through simulation, agentic planning, latent control, and video generation.">
-        <figcaption><strong>Fluid-Gen-Zero pipeline.</strong> Starting from an input image and text prompt, the method reconstructs a simulatable 3D scene, rolls out fluid-object dynamics, and guides a frozen video foundation model through generation-level planning and latent-level control.</figcaption>
-      </figure>
-    </div></div>
   </div>
 </section>
 
