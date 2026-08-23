@@ -193,34 +193,47 @@ body {
 }
 
 /* ---- rebuilt results grid ------------------------------------------- */
-.case-nav { position: sticky; top: 0; z-index: 20; display: flex; flex-wrap: wrap;
-  justify-content: center; gap: .4rem; padding: .7rem .5rem; margin-bottom: 1.5rem;
-  background: rgba(250,251,252,.94); backdrop-filter: blur(6px);
-  border-bottom: 1px solid #e5e9ef; }
-.case-nav a { font: .85rem 'Google Sans', sans-serif; color: #45566b; padding: .25rem .7rem;
-  border: 1px solid #dfe5eb; border-radius: 999px; background: #fff; }
-.case-nav a:hover { border-color: #74b4a4; color: #2b7a66; }
-.case-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-.case-id { font: 600 1.15rem 'Google Sans', sans-serif; color: #1f2937; margin: 0; }
-.replay-btn { border: 1px solid #dfe5eb; border-radius: 999px; background: #fff;
-  color: #5f6b78; font-size: .8rem; padding: .3rem .8rem; cursor: pointer; white-space: nowrap; }
-.replay-btn:hover { border-color: #74b4a4; color: #2b7a66; }
-.case-caption { margin: .5rem 0 1.1rem; }
-.row-label { font: 600 .78rem 'Google Sans', sans-serif; letter-spacing: .07em;
-  text-transform: uppercase; color: #8a96a4; margin: 1.3rem 0 .6rem; }
-.row-label span { text-transform: none; letter-spacing: 0; font-weight: 400; color: #9aa5b1; }
-.video-grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.backbone-row { display: flex; gap: 1rem; }
-.backbone-col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: .6rem; }
-.backbone-row:has(.backbone-col:only-child) { justify-content: center; }
-.backbone-col:only-child { flex: 0 1 min(46%, 520px); }
-.video-card figcaption { min-height: 0; }
-.video-card figcaption span { display: block; margin-top: .15rem; }
-.input-card img { display: block; width: 100%; aspect-ratio: 16 / 9;
-  object-fit: contain; background: #101820; }
-.input-card { border-color: #b9c6d4; }
-.input-card figcaption { background: #f6f8fa; }
-@media screen and (max-width: 800px) {
-  .backbone-row { flex-direction: column; }
-  .video-grid.cols-2 { grid-template-columns: 1fr; }
+.results-section { background: #fafbfc; }
+.results-section .container { max-width: 1720px; padding: 0 1.5rem; }
+.results-section .section-heading p { max-width: 780px; margin: .6rem auto 0; color: #5f6b78; }
+
+.headers-scope { display: flow-root; }
+.column-headers { display: grid; grid-template-columns: repeat(9, 1fr); gap: .4rem;
+  position: sticky; top: 0; z-index: 30; padding: .55rem 0 .5rem;
+  background: #fafbfc; box-shadow: 0 6px 8px -6px rgba(31,45,61,.14);
+  text-align: center; }
+.column-header { padding: .5rem .3rem; border-radius: 7px; color: #fff;
+  font: 600 .82rem 'Google Sans', sans-serif; background: #7d8b9b; }
+.column-header.is-sim { background: #c08a2e; }
+.column-header.is-ours { background: #2b7a66; }
+
+.row-container { margin: 1.4rem auto .2rem; }
+.row-prompt { text-align: center; font-style: italic; font-size: 1rem; line-height: 1.5;
+  color: #4b5765; max-width: 980px; margin: 0 auto .5rem; padding: 0 1rem; }
+.row-prompt::before { content: '\201C'; margin-right: .15em; }
+.row-prompt::after  { content: '\201D'; margin-left: .15em; }
+
+.results-grid { display: grid; grid-template-columns: repeat(9, 1fr); gap: .4rem; }
+.grid-item { position: relative; border: 1px solid #dfe5eb; border-radius: 7px;
+  overflow: hidden; background: #eef1f4; transition: transform .25s ease, box-shadow .25s ease; }
+.grid-item:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(31,45,61,.12); }
+.grid-item video { display: block; width: 100%; aspect-ratio: 16 / 9;
+  object-fit: contain; background: #0d141c; }
+.grid-item.is-sim  { border-color: #e2b76b; }
+.grid-item.is-ours { border: 2px solid #2b7a66; }
+.grid-item.is-na { aspect-ratio: 16 / 9; background: #f1f4f7; }
+.grid-item.is-na::after { content: 'N/A'; position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font: 600 .8rem 'Google Sans', sans-serif; color: #a6b0bc; }
+
+@media screen and (max-width: 1500px) {
+  .column-header { font-size: .74rem; padding: .42rem .2rem; }
+  .row-prompt { font-size: .93rem; }
+}
+@media screen and (max-width: 1100px) {
+  .column-headers, .results-grid { grid-template-columns: repeat(3, 1fr); }
+  .column-headers { position: static; box-shadow: none; }
+}
+@media screen and (max-width: 700px) {
+  .column-headers, .results-grid { grid-template-columns: repeat(2, 1fr); }
 }
