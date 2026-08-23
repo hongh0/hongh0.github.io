@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link rel="stylesheet" href="./static/css/index.css?v=9a3e23d2e0">
+  <link rel="stylesheet" href="./static/css/index.css?v=4420faa448">
 </head>
 <body>
 <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -86,8 +86,8 @@
   <div class="container">
     <div class="has-text-centered section-heading">
       <h2 class="title is-3">Showcase Scenes</h2>
-      <p>Two scenes outside the benchmark set. Each is driven by a single
-         external force &mdash; press the arrow to apply it.</p>
+      <p>Two scenes outside the benchmark set. The still is the first frame the
+         generator starts from &mdash; press play to run the simulation-guided result.</p>
     </div>
     <div class="showcase-tabs"><button class="showcase-tab is-active" type="button" data-scene="040">Apple in cider</button><button class="showcase-tab" type="button" data-scene="041">Paper lantern</button></div>
     <div class="showcase-scenes">
@@ -96,22 +96,22 @@
             <video class="showcase-video" muted loop playsinline preload="none"
                    poster="./static/images/posters/040/ours_vace.jpg"
                    data-src="./static/videos/cases/040/ours_vace.mp4"></video>
-            <button class="force-arrow" type="button" style="left:24%; top:66%"
-                    aria-label="Down-left force">
-              <i class="fas fa-arrow-left" style="transform: rotate(45deg)"></i><span>Down-left force</span>
+            <button class="showcase-play" type="button" aria-label="Play this scene">
+              <i class="fas fa-play"></i><span>Bring the scene to life</span>
             </button>
           </div>
+          <p class="showcase-caption"><strong>Ours (VACE)</strong> &mdash; &ldquo;An apple falls into a vat of cider, sending up a spray.&rdquo;</p>
         </div>
         <div class="showcase-scene" data-scene="041">
           <div class="showcase-stage" data-stage>
             <video class="showcase-video" muted loop playsinline preload="none"
                    poster="./static/images/posters/041/ours_wanmove.jpg"
                    data-src="./static/videos/cases/041/ours_wanmove.mp4"></video>
-            <button class="force-arrow" type="button" style="left:20%; top:50%"
-                    aria-label="Leftward force">
-              <i class="fas fa-arrow-left" style="transform: rotate(0deg)"></i><span>Leftward force</span>
+            <button class="showcase-play" type="button" aria-label="Play this scene">
+              <i class="fas fa-play"></i><span>Bring the scene to life</span>
             </button>
           </div>
+          <p class="showcase-caption"><strong>Ours (WanMove)</strong> &mdash; &ldquo;A square paper lantern is moving on river. Water surface ripples follow the motion. Twilight, cinematic realism.&rdquo;</p>
         </div>
     </div>
   </div>
@@ -199,8 +199,8 @@
   document.querySelectorAll('.row-container').forEach(function (r) { io.observe(r); });
 })();
 
-// Showcase: the arrow is the control. Pressing it applies that scene's force
-// and runs the clip; nothing is fetched until then.
+// Showcase: tabs pick a scene, the still plays on demand. Nothing is fetched
+// until asked for, so the section costs nothing to scroll past.
 (function () {
   var scenes = document.querySelectorAll('.showcase-scene');
   if (!scenes.length) return;
@@ -209,7 +209,6 @@
     var v = scene.querySelector('video');
     if (v.dataset.src) { v.src = v.dataset.src; delete v.dataset.src; }
     scene.querySelector('.showcase-stage').classList.add('is-playing');
-    v.currentTime = 0;
     v.play().catch(function () {});
   }
 
@@ -229,7 +228,8 @@
         var on = s.dataset.scene === id;
         s.classList.toggle('is-active', on);
         if (!on) {
-          s.querySelector('video').pause();
+          var v = s.querySelector('video');
+          v.pause();
           s.querySelector('.showcase-stage').classList.remove('is-playing');
         }
       });
