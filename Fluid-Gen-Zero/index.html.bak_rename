@@ -17,7 +17,7 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-menu is-active">
     <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="#interactive">Physics Control</a>
+      <a class="navbar-item" href="#showcase">Showcase</a>
       <a class="navbar-item" href="#results">Results</a>
       <a class="navbar-item" href="#bibtex">BibTeX</a>
     </div>
@@ -82,12 +82,12 @@
   </div>
 </section>
 
-<section class="section showcase-section" id="interactive">
+<section class="section showcase-section" id="showcase">
   <div class="container">
     <div class="has-text-centered section-heading">
-      <h2 class="title is-3">Interactive Physics Control</h2>
-      <p>Apply a force and watch the fluid respond. Each scene is driven by one
-         external force &mdash; press the arrow where it acts.</p>
+      <h2 class="title is-3">Showcase Scenes</h2>
+      <p>Two scenes outside the benchmark set. Each is driven by a single
+         external force &mdash; press the arrow to apply it.</p>
     </div>
     <div class="showcase-tabs"><button class="showcase-tab is-active" type="button" data-scene="040">Apple in cider</button><button class="showcase-tab" type="button" data-scene="041">Paper lantern</button></div>
     <div class="showcase-scenes">
