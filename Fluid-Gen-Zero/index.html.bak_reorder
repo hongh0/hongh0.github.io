@@ -66,20 +66,9 @@
       <p>Apply a force and watch the fluid respond. Each scene is driven by one
          external force &mdash; press the arrow where it acts.</p>
     </div>
-    <div class="showcase-tabs"><button class="showcase-tab is-active" type="button" data-scene="041">Paper lantern</button><button class="showcase-tab" type="button" data-scene="040">Apple in cider</button></div>
+    <div class="showcase-tabs"><button class="showcase-tab is-active" type="button" data-scene="040">Apple in cider</button><button class="showcase-tab" type="button" data-scene="041">Paper lantern</button></div>
     <div class="showcase-scenes">
-        <div class="showcase-scene is-active" data-scene="041">
-          <div class="showcase-stage" data-stage>
-            <video class="showcase-video" muted loop playsinline preload="none"
-                   poster="./static/images/posters/041/ours_wanmove.jpg"
-                   data-src="./static/videos/cases/041/ours_wanmove.mp4"></video>
-            <button class="force-arrow" type="button" style="left:20%; top:50%"
-                    aria-label="Leftward force">
-              <i class="fas fa-arrow-left" style="transform: rotate(0deg)"></i><span>Leftward force</span>
-            </button>
-          </div>
-        </div>
-        <div class="showcase-scene" data-scene="040">
+        <div class="showcase-scene is-active" data-scene="040">
           <div class="showcase-stage" data-stage>
             <video class="showcase-video" muted loop playsinline preload="none"
                    poster="./static/images/posters/040/ours_vace.jpg"
@@ -87,6 +76,17 @@
             <button class="force-arrow" type="button" style="left:24%; top:66%"
                     aria-label="Down-left force">
               <i class="fas fa-arrow-left" style="transform: rotate(45deg)"></i><span>Down-left force</span>
+            </button>
+          </div>
+        </div>
+        <div class="showcase-scene" data-scene="041">
+          <div class="showcase-stage" data-stage>
+            <video class="showcase-video" muted loop playsinline preload="none"
+                   poster="./static/images/posters/041/ours_wanmove.jpg"
+                   data-src="./static/videos/cases/041/ours_wanmove.mp4"></video>
+            <button class="force-arrow" type="button" style="left:20%; top:50%"
+                    aria-label="Leftward force">
+              <i class="fas fa-arrow-left" style="transform: rotate(0deg)"></i><span>Leftward force</span>
             </button>
           </div>
         </div>
