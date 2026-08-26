@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Fluid-Gen-Zero: Grounding Pretrained Video Generators in Physics without Training.">
+  <meta name="keywords" content="Fluid-Gen-Zero, physics-aware video generation, fluid simulation, video generation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fluid-Gen-Zero</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="./static/css/index.css?v=6bd8d163e4">
+</head>
+<body>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-menu is-active">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="#interactive">Physics Control</a>
+      <a class="navbar-item" href="#results">Results</a>
+      <a class="navbar-item" href="#bibtex">BibTeX</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" id="top">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="has-text-centered">
+        <h1 class="title is-1 publication-title">Fluid-Gen-Zero: Grounding Pretrained Video Generators in Physics without Training</h1>
+        <div class="is-size-5 publication-authors">
+          <span class="author-block"><a href="https://hongh0.github.io/">Hong Huang</a><sup>1</sup>,</span>
+          <span class="author-block"><a href="https://autumnyq.github.io/">Yuqiu Liu</a><sup>1</sup>,</span>
+          <span class="author-block"><a href="https://chenyuyou.me/">Chenyu You</a><sup>2</sup>,</span>
+          <span class="author-block"><a href="#" onclick="return false;">Daniel F Martin</a><sup>3</sup>,</span>
+          <span class="author-block"><a href="https://zouchuhang.github.io/">Chuhang Zou</a><sup>4</sup><sup>†</sup>,</span>
+          <span class="author-block"><a href="https://chenwydj.github.io/">Wuyang Chen</a><sup>1</sup><sup>†</sup></span>
+        </div>
+        <div class="is-size-5 publication-authors"><sup>1</sup>Simon Fraser University &nbsp; <sup>2</sup>Stony Brook University &nbsp; <sup>3</sup>Lawrence Berkeley National Lab &nbsp; <sup>4</sup>Meta Reality Labs</div>
+        <div class="is-size-6 publication-authors correspondence">† Correspondence</div>
+        <div class="publication-links">
+          <span class="link-block"><a class="external-link button is-dark is-rounded" href="./paper.pdf"><span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span></a></span>
+          <span class="link-block"><a class="external-link button is-dark is-rounded" href="https://github.com/hongh0/Fluid-Gen-Zero"><span class="icon"><i class="fab fa-github"></i></span><span>Code</span></a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="teaser-card">
+        <div class="teaser-copy"><span class="dnerf">Fluid-Gen-Zero</span> brings simulation-grounded physical control to pretrained video generators without updating their parameters.</div>
+        <div class="teaser-pills"><span>Training-free</span><span>Simulation-grounded</span><span>Plug-and-play</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section showcase-section" id="interactive">
+  <div class="container">
+    <div class="has-text-centered section-heading">
+      <h2 class="title is-3">Interactive Physics Control</h2>
+      <p>Apply a force and watch the fluid respond. Each scene is driven by one
+         external force &mdash; press the arrow where it acts.</p>
+    </div>
+    <div class="showcase-tabs"><button class="showcase-tab is-active" type="button" data-scene="041">Paper lantern</button><button class="showcase-tab" type="button" data-scene="040">Apple in cider</button></div>
+    <div class="showcase-scenes">
+        <div class="showcase-scene is-active" data-scene="041">
+          <div class="showcase-stage" data-stage>
+            <video class="showcase-video" muted loop playsinline preload="none"
+                   poster="./static/images/posters/041/ours_wanmove.jpg"
+                   data-src="./static/videos/cases/041/ours_wanmove.mp4"></video>
+            <button class="force-arrow" type="button" style="left:20%; top:50%"
+                    aria-label="Leftward force">
+              <i class="fas fa-arrow-left" style="transform: rotate(0deg)"></i><span>Leftward force</span>
+            </button>
+          </div>
+        </div>
+        <div class="showcase-scene" data-scene="040">
+          <div class="showcase-stage" data-stage>
+            <video class="showcase-video" muted loop playsinline preload="none"
+                   poster="./static/images/posters/040/ours_vace.jpg"
+                   data-src="./static/videos/cases/040/ours_vace.mp4"></video>
+            <button class="force-arrow" type="button" style="left:24%; top:66%"
+                    aria-label="Down-left force">
+              <i class="fas fa-arrow-left" style="transform: rotate(45deg)"></i><span>Down-left force</span>
+            </button>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="abstract">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered"><div class="column is-four-fifths">
+      <h2 class="title is-3">Abstract</h2>
+      <div class="content has-text-justified">
+        <p>We present <strong>Fluid-Gen-Zero</strong>, a training-free framework for physics-aware fluid video generation that decouples physical reasoning from appearance synthesis. Our key insight is to delegate motion dynamics to a physics simulator while preserving the appearance modeling capacity of pretrained video generators.</p>
+        <p>We bridge these two domains through a two-level agentic workflow: <em>generation-time planning</em>, where a rule-grounded VLM agent parses intent, observes simulation evidence, and organizes generation into physically feasible clips, and <em>latent-space guidance</em>, which injects simulation-derived signals into denoising via region-aware latent wrapping. This plug-and-play design is compatible with modern video models and improves both physical alignment and visual quality without training.</p>
+      </div>
+      <figure class="paper-figure">
+        <img src="./static/images/motivation.png" alt="Comparison between training-based and training-free physics-aware video generation.">
+        <figcaption><strong>Training-based vs. training-free physics-aware video generation.</strong> Existing approaches rely on architecture-coupled post-training, while Fluid-Gen-Zero decouples physical reasoning from appearance synthesis and introduces physics awareness entirely at inference time.</figcaption>
+      </figure>
+    </div></div>
+    <div class="columns is-centered"><div class="column is-four-fifths">
+      <div class="method-strip"><div><strong>Simulation</strong><br><span>structured dynamics</span></div><i class="fas fa-arrow-right"></i><div><strong>Agentic planning</strong><br><span>event-aware clips</span></div><i class="fas fa-arrow-right"></i><div><strong>Latent guidance</strong><br><span>appearance synthesis</span></div></div>
+      <figure class="paper-figure">
+        <img src="./static/images/pipeline.png" alt="Fluid-Gen-Zero pipeline from input image and prompt through simulation, agentic planning, latent control, and video generation.">
+        <figcaption><strong>Fluid-Gen-Zero pipeline.</strong> Starting from an input image and text prompt, the method reconstructs a simulatable 3D scene, rolls out fluid-object dynamics, and guides a frozen video foundation model through generation-level planning and latent-level control.</figcaption>
+      </figure>
+    </div></div>
+  </div>
+</section>
+
+<section class="section results-section" id="results">
+  <div class="container is-fluid">
+    <div class="has-text-centered section-heading">
+      <h2 class="title is-3">Qualitative Results</h2>
+      <p>Ten benchmark scenes. Pick a backbone to compare it against its own
+         Fluid-Gen-Zero result, alongside the simulation and the two
+         physics-based methods.</p>
+    </div>
+    <div class="showcase-tabs bb-tabs"><button class="showcase-tab is-active" type="button" data-bb="vace">VACE</button><button class="showcase-tab" type="button" data-bb="tora">Tora</button><button class="showcase-tab" type="button" data-bb="wanmove">WanMove</button></div>
+      <div class="bb-panel is-active" data-bb="vace">
+        <div class="headers-scope">
+          <div class="column-headers"><div class="column-header is-sim">Simulation</div><div class="column-header ">PhysGen3D</div><div class="column-header ">WonderPlay</div><div class="column-header ">VACE</div><div class="column-header is-ours">Ours (VACE)</div></div>
+        <div class="row-container">
+          <p class="row-prompt">Bird's-eye view showing a gold coin resting calmly on an abstract field of crystal clear milk, creating subtle interference patterns.</p>
+          <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/000/simulation.jpg" data-src="./static/videos/cases/000/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/000/physgen3d.jpg" data-src="./static/videos/cases/000/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/000/wonderplay.jpg" data-src="./static/videos/cases/000/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/000/baseline_vace.jpg" data-src="./static/videos/cases/000/baseline_vace.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/000/ours_vace.jpg" data-src="./static/videos/cases/000/ours_vace.mp4"></video></div></div>
+        </div>
+        <div class="row-container">
+          <p class="row-prompt">Bird's-eye view where a fresh red pear rotates rapidly on top of a turbulent, storm-tossed sea of milky oil, flinging droplets outwards due to centrifugal force.</p>
+          <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/002/simulation.jpg" data-src="./static/videos/cases/002/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/002/physgen3d.jpg" data-src="./static/videos/cases/002/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/002/wonderplay.jpg" data-src="./static/videos/cases/002/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/002/baseline_vace.jpg" data-src="./static/videos/cases/002/baseline_vace.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/002/ours_vace.jpg" data-src="./static/videos/cases/002/ours_vace.mp4"></video></div></div>
+        </div>
+        <div class="row-container">
+          <p class="row-prompt">Direct overhead view of a black ceramic cube resting in a shallow pool of purple liquid.</p>
+          <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/007/simulation.jpg" data-src="./static/videos/cases/007/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/007/physgen3d.jpg" data-src="./static/videos/cases/007/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/007/wonderplay.jpg" data-src="./static/videos/cases/007/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/007/baseline_vace.jpg" data-src="./static/videos/cases/007/baseline_vace.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/007/ours_vace.jpg" data-src="./static/videos/cases/007/ours_vace.mp4"></video></div></div>
+        </div>
+        <div class="row-container">
+          <p class="row-prompt">Flat-lay style shot capturing a waxed coconut smashing into a heavy, moving mass of milky slime.</p>
+          <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/014/simulation.jpg" data-src="./static/videos/cases/014/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/014/physgen3d.jpg" data-src="./static/videos/cases/014/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/014/wonderplay.jpg" data-src="./static/videos/cases/014/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/014/baseline_vace.jpg" data-src="./static/videos/cases/014/baseline_vace.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/014/ours_vace.jpg" data-src="./static/videos/cases/014/ours_vace.mp4"></video></div></div>
+        </div>
+        <div class="row-container">
+          <p class="row-prompt">Flat-lay style shot where a matte rubber thick ring rotates rapidly on top of a stagnant, still pond of translucent teal paint, flinging droplets outwards due to centrifugal force.</p>
+          <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/017/simulation.jpg" data-src="./static/videos/cases/017/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/017/physgen3d.jpg" data-src="./static/videos/cases/017/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/017/wonderplay.jpg" data-src="./static/videos/cases/017/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/017/baseline_vace.jpg" data-src="./static/videos/cases/017/baseline_vace.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/017/ours_vace.jpg" data-src="./static/videos/cases/017/ours_vace.mp4"></video></div></div>
+        </div>
+        <div class="row-container">
+          <p class="row-prompt">Strict overhead view of a bright yellow pomegranate slowly drifting across a perfectly uniform, monochromatic field of liquid mercury.</p>
+          <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/022/simulation.jpg" data-src="./static/videos/cases/022/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/022/physgen3d.jpg" data-src="./static/videos/cases/022/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/022/wonderplay.jpg" data-src="./static/videos/cases/022/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/022/baseline_vace.jpg" data-src="./static/videos/cases/022/baseline_vace.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/022/ours_vace.jpg" data-src="./static/videos/cases/022/ours_vace.mp4"></video></div></div>
+        </div>
+        <div class="row-container">
+          <p class="row-prompt">Strict top-down view of a copper pyramid resting in a shallow pool of opaque white paint.</p>
+          <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/023/simulation.jpg" data-src="./static/videos/cases/023/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/023/physgen3d.jpg" data-src="./static/videos/cases/023/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/023/wonderplay.jpg" data-src="./static/videos/cases/023/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/023/baseline_vace.jpg" data-src="./static/videos/cases/023/baseline_vace.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/023/ours_vace.jpg" data-src="./static/videos/cases/023/ours_vace.mp4"></video></div></div>
+        </div>
+        <div class="row-container">
+          <p class="row-prompt">Strict top-down view of a wet passion fruit resting in a shallow pool of purple oil.</p>
+          <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/026/simulation.jpg" data-src="./static/videos/cases/026/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/026/physgen3d.jpg" data-src="./static/videos/cases/026/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/026/wonderplay.jpg" data-src="./static/videos/cases/026/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/026/baseline_vace.jpg" data-src="./static/videos/cases/026/baseline_vace.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/026/ours_vace.jpg" data-src="./static/videos/cases/026/ours_vace.mp4"></video></div></div>
+        </div>
+        <div class="row-container">
+          <p class="row-prompt">Vertical aerial shot of a stationary waxed lemon.</p>
+          <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/029/simulation.jpg" data-src="./static/videos/cases/029/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/029/physgen3d.jpg" data-src="./static/videos/cases/029/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/029/wonderplay.jpg" data-src="./static/videos/cases/029/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/029/baseline_vace.jpg" data-src="./static/videos/cases/029/baseline_vace.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/029/ours_vace.jpg" data-src="./static/videos/cases/029/ours_vace.mp4"></video></div></div>
+        </div>
+        <div class="row-container">
+          <p class="row-prompt">Bird's-eye view of a shiny green coconut partially submerged in a high-contrast pool of milky juice.</p>
+          <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/035/simulation.jpg" data-src="./static/videos/cases/035/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/035/physgen3d.jpg" data-src="./static/videos/cases/035/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/035/wonderplay.jpg" data-src="./static/videos/cases/035/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/035/baseline_vace.jpg" data-src="./static/videos/cases/035/baseline_vace.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/035/ours_vace.jpg" data-src="./static/videos/cases/035/ours_vace.mp4"></video></div></div>
+        </div>
+        </div>
+      </div>
+      <div class="bb-panel" data-bb="tora">
+        <div class="headers-scope">
+          <div class="column-headers"><div class="column-header is-sim">Simulation</div><div class="column-header ">PhysGen3D</div><div class="column-header ">WonderPlay</div><div class="column-header ">Tora</div><div class="column-header is-ours">Ours (Tora)</div></div>
+        <div class="row-container">
+          <p class="row-prompt">Bird's-eye view showing a gold coin resting calmly on an abstract field of crystal clear milk, creating subtle interference patterns.</p>
+          <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/000/simulation.jpg" data-src="./static/videos/cases/000/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/000/physgen3d.jpg" data-src="./static/videos/cases/000/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/000/wonderplay.jpg" data-src="./static/videos/cases/000/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/000/baseline_tora.jpg" data-src="./static/videos/cases/000/baseline_tora.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/000/ours_tora.jpg" data-src="./static/videos/cases/000/ours_tora.mp4"></video></div></div>
+        </div>
+        <div class="row-container">
+          <p class="row-prompt">Bird's-eye view where a fresh red pear rotates rapidly on top of a turbulent, storm-tossed sea of milky oil, flinging droplets outwards due to centrifugal force.</p>
+          <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/002/simulation.jpg" data-src="./static/videos/cases/002/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/002/physgen3d.jpg" data-src="./static/videos/cases/002/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/002/wonderplay.jpg" data-src="./static/videos/cases/002/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/002/baseline_tora.jpg" data-src="./static/videos/cases/002/baseline_tora.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/002/ours_tora.jpg" data-src="./static/videos/cases/002/ours_tora.mp4"></video></div></div>
+        </div>
+        <div class="row-container">
+          <p class="row-prompt">Direct overhead view of a black ceramic cube resting in a shallow pool of purple liquid.</p>
+          <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/007/simulation.jpg" data-src="./static/videos/cases/007/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/007/physgen3d.jpg" data-src="./static/videos/cases/007/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/007/wonderplay.jpg" data-src="./static/videos/cases/007/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/007/baseline_tora.jpg" data-src="./static/videos/cases/007/baseline_tora.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/007/ours_tora.jpg" data-src="./static/videos/cases/007/ours_tora.mp4"></video></div></div>
+        </div>
+        <div class="row-container">
+          <p class="row-prompt">Flat-lay style shot capturing a waxed coconut smashing into a heavy, moving mass of milky slime.</p>
+          <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/014/simulation.jpg" data-src="./static/videos/cases/014/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/014/physgen3d.jpg" data-src="./static/videos/cases/014/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/014/wonderplay.jpg" data-src="./static/videos/cases/014/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/014/baseline_tora.jpg" data-src="./static/videos/cases/014/baseline_tora.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/014/ours_tora.jpg" data-src="./static/videos/cases/014/ours_tora.mp4"></video></div></div>
+        </div>
+        <div class="row-container">
+          <p class="row-prompt">Flat-lay style shot where a matte rubber thick ring rotates rapidly on top of a stagnant, still pond of translucent teal paint, flinging droplets outwards due to centrifugal force.</p>
+          <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/017/simulation.jpg" data-src="./static/videos/cases/017/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/017/physgen3d.jpg" data-src="./static/videos/cases/017/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/017/wonderplay.jpg" data-src="./static/videos/cases/017/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/017/baseline_tora.jpg" data-src="./static/videos/cases/017/baseline_tora.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/017/ours_tora.jpg" data-src="./static/videos/cases/017/ours_tora.mp4"></video></div></div>
+        </div>
+        <div class="row-container">
+          <p class="row-prompt">Strict overhead view of a bright yellow pomegranate slowly drifting across a perfectly uniform, monochromatic field of liquid mercury.</p>
+          <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/022/simulation.jpg" data-src="./static/videos/cases/022/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/022/physgen3d.jpg" data-src="./static/videos/cases/022/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/022/wonderplay.jpg" data-src="./static/videos/cases/022/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/022/baseline_tora.jpg" data-src="./static/videos/cases/022/baseline_tora.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/022/ours_tora.jpg" data-src="./static/videos/cases/022/ours_tora.mp4"></video></div></div>
+        </div>
+        <div class="row-container">
+          <p class="row-prompt">Strict top-down view of a copper pyramid resting in a shallow pool of opaque white paint.</p>
+          <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/023/simulation.jpg" data-src="./static/videos/cases/023/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/023/physgen3d.jpg" data-src="./static/videos/cases/023/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/023/wonderplay.jpg" data-src="./static/videos/cases/023/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/023/baseline_tora.jpg" data-src="./static/videos/cases/023/baseline_tora.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/023/ours_tora.jpg" data-src="./static/videos/cases/023/ours_tora.mp4"></video></div></div>
+        </div>
+        <div class="row-container">
+          <p class="row-prompt">Strict top-down view of a wet passion fruit resting in a shallow pool of purple oil.</p>
+          <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/026/simulation.jpg" data-src="./static/videos/cases/026/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/026/physgen3d.jpg" data-src="./static/videos/cases/026/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/026/wonderplay.jpg" data-src="./static/videos/cases/026/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/026/baseline_tora.jpg" data-src="./static/videos/cases/026/baseline_tora.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/026/ours_tora.jpg" data-src="./static/videos/cases/026/ours_tora.mp4"></video></div></div>
+        </div>
+        <div class="row-container">
+          <p class="row-prompt">Vertical aerial shot of a stationary waxed lemon.</p>
+          <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/029/simulation.jpg" data-src="./static/videos/cases/029/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/029/physgen3d.jpg" data-src="./static/videos/cases/029/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/029/wonderplay.jpg" data-src="./static/videos/cases/029/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/029/baseline_tora.jpg" data-src="./static/videos/cases/029/baseline_tora.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/029/ours_tora.jpg" data-src="./static/videos/cases/029/ours_tora.mp4"></video></div></div>
+        </div>
+        <div class="row-container">
+          <p class="row-prompt">Bird's-eye view of a shiny green coconut partially submerged in a high-contrast pool of milky juice.</p>
+          <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/035/simulation.jpg" data-src="./static/videos/cases/035/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/035/physgen3d.jpg" data-src="./static/videos/cases/035/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/035/wonderplay.jpg" data-src="./static/videos/cases/035/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/035/baseline_tora.jpg" data-src="./static/videos/cases/035/baseline_tora.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/035/ours_tora.jpg" data-src="./static/videos/cases/035/ours_tora.mp4"></video></div></div>
+        </div>
+        </div>
+      </div>
+      <div class="bb-panel" data-bb="wanmove">
+        <div class="headers-scope">
+          <div class="column-headers"><div class="column-header is-sim">Simulation</div><div class="column-header ">PhysGen3D</div><div class="column-header ">WonderPlay</div><div class="column-header ">WanMove</div><div class="column-header is-ours">Ours (WanMove)</div></div>
+        <div class="row-container">
+          <p class="row-prompt">Bird's-eye view showing a gold coin resting calmly on an abstract field of crystal clear milk, creating subtle interference patterns.</p>
+          <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/000/simulation.jpg" data-src="./static/videos/cases/000/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/000/physgen3d.jpg" data-src="./static/videos/cases/000/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/000/wonderplay.jpg" data-src="./static/videos/cases/000/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/000/baseline_wanmove.jpg" data-src="./static/videos/cases/000/baseline_wanmove.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/000/ours_wanmove.jpg" data-src="./static/videos/cases/000/ours_wanmove.mp4"></video></div></div>
+        </div>
+        <div class="row-container">
+          <p class="row-prompt">Bird's-eye view where a fresh red pear rotates rapidly on top of a turbulent, storm-tossed sea of milky oil, flinging droplets outwards due to centrifugal force.</p>
+          <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/002/simulation.jpg" data-src="./static/videos/cases/002/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/002/physgen3d.jpg" data-src="./static/videos/cases/002/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/002/wonderplay.jpg" data-src="./static/videos/cases/002/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/002/baseline_wanmove.jpg" data-src="./static/videos/cases/002/baseline_wanmove.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/002/ours_wanmove.jpg" data-src="./static/videos/cases/002/ours_wanmove.mp4"></video></div></div>
+        </div>
+        <div class="row-container">
+          <p class="row-prompt">Direct overhead view of a black ceramic cube resting in a shallow pool of purple liquid.</p>
+          <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/007/simulation.jpg" data-src="./static/videos/cases/007/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/007/physgen3d.jpg" data-src="./static/videos/cases/007/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/007/wonderplay.jpg" data-src="./static/videos/cases/007/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/007/baseline_wanmove.jpg" data-src="./static/videos/cases/007/baseline_wanmove.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/007/ours_wanmove.jpg" data-src="./static/videos/cases/007/ours_wanmove.mp4"></video></div></div>
+        </div>
+        <div class="row-container">
+          <p class="row-prompt">Flat-lay style shot capturing a waxed coconut smashing into a heavy, moving mass of milky slime.</p>
+          <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/014/simulation.jpg" data-src="./static/videos/cases/014/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/014/physgen3d.jpg" data-src="./static/videos/cases/014/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/014/wonderplay.jpg" data-src="./static/videos/cases/014/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/014/baseline_wanmove.jpg" data-src="./static/videos/cases/014/baseline_wanmove.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/014/ours_wanmove.jpg" data-src="./static/videos/cases/014/ours_wanmove.mp4"></video></div></div>
+        </div>
+        <div class="row-container">
+          <p class="row-prompt">Flat-lay style shot where a matte rubber thick ring rotates rapidly on top of a stagnant, still pond of translucent teal paint, flinging droplets outwards due to centrifugal force.</p>
+          <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/017/simulation.jpg" data-src="./static/videos/cases/017/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/017/physgen3d.jpg" data-src="./static/videos/cases/017/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/017/wonderplay.jpg" data-src="./static/videos/cases/017/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/017/baseline_wanmove.jpg" data-src="./static/videos/cases/017/baseline_wanmove.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/017/ours_wanmove.jpg" data-src="./static/videos/cases/017/ours_wanmove.mp4"></video></div></div>
+        </div>
+        <div class="row-container">
+          <p class="row-prompt">Strict overhead view of a bright yellow pomegranate slowly drifting across a perfectly uniform, monochromatic field of liquid mercury.</p>
+          <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/022/simulation.jpg" data-src="./static/videos/cases/022/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/022/physgen3d.jpg" data-src="./static/videos/cases/022/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/022/wonderplay.jpg" data-src="./static/videos/cases/022/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/022/baseline_wanmove.jpg" data-src="./static/videos/cases/022/baseline_wanmove.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/022/ours_wanmove.jpg" data-src="./static/videos/cases/022/ours_wanmove.mp4"></video></div></div>
+        </div>
+        <div class="row-container">
+          <p class="row-prompt">Strict top-down view of a copper pyramid resting in a shallow pool of opaque white paint.</p>
+          <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/023/simulation.jpg" data-src="./static/videos/cases/023/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/023/physgen3d.jpg" data-src="./static/videos/cases/023/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/023/wonderplay.jpg" data-src="./static/videos/cases/023/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/023/baseline_wanmove.jpg" data-src="./static/videos/cases/023/baseline_wanmove.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/023/ours_wanmove.jpg" data-src="./static/videos/cases/023/ours_wanmove.mp4"></video></div></div>
+        </div>
+        <div class="row-container">
+          <p class="row-prompt">Strict top-down view of a wet passion fruit resting in a shallow pool of purple oil.</p>
+          <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/026/simulation.jpg" data-src="./static/videos/cases/026/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/026/physgen3d.jpg" data-src="./static/videos/cases/026/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/026/wonderplay.jpg" data-src="./static/videos/cases/026/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/026/baseline_wanmove.jpg" data-src="./static/videos/cases/026/baseline_wanmove.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/026/ours_wanmove.jpg" data-src="./static/videos/cases/026/ours_wanmove.mp4"></video></div></div>
+        </div>
+        <div class="row-container">
+          <p class="row-prompt">Vertical aerial shot of a stationary waxed lemon.</p>
+          <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/029/simulation.jpg" data-src="./static/videos/cases/029/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/029/physgen3d.jpg" data-src="./static/videos/cases/029/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/029/wonderplay.jpg" data-src="./static/videos/cases/029/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/029/baseline_wanmove.jpg" data-src="./static/videos/cases/029/baseline_wanmove.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/029/ours_wanmove.jpg" data-src="./static/videos/cases/029/ours_wanmove.mp4"></video></div></div>
+        </div>
+        <div class="row-container">
+          <p class="row-prompt">Bird's-eye view of a shiny green coconut partially submerged in a high-contrast pool of milky juice.</p>
+          <div class="results-grid"><div class="grid-item is-sim"><video muted loop playsinline preload="none" poster="./static/images/posters/035/simulation.jpg" data-src="./static/videos/cases/035/simulation.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/035/physgen3d.jpg" data-src="./static/videos/cases/035/physgen3d.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/035/wonderplay.jpg" data-src="./static/videos/cases/035/wonderplay.mp4"></video></div><div class="grid-item "><video muted loop playsinline preload="none" poster="./static/images/posters/035/baseline_wanmove.jpg" data-src="./static/videos/cases/035/baseline_wanmove.mp4"></video></div><div class="grid-item is-ours"><video muted loop playsinline preload="none" poster="./static/images/posters/035/ours_wanmove.jpg" data-src="./static/videos/cases/035/ours_wanmove.mp4"></video></div></div>
+        </div>
+        </div>
+      </div>
+  </div>
+</section>
+
+<section class="section" id="bibtex"><div class="container is-max-desktop content"><h2 class="title">BibTeX</h2><pre><code>@inproceedings{fluidgenzero2026,
+  title     = {Fluid-Gen-Zero: Grounding Pretrained Video Generators in Physics without Training},
+  author    = {Huang, Hong and Liu, Yuqiu and You, Chenyu and Martin, Daniel F and Zou, Chuhang and Chen, Wuyang},
+  booktitle = {arXiv},
+  year      = {2026},
+}</code></pre></div></section>
+<footer class="footer"><div class="container"><div class="content has-text-centered"><p>Fluid-Gen-Zero</p><p>Website adapted from the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies project page template</a>.</p></div></div></footer>
+<script>
+// Rows are fetched just before they scroll into view and paused once they
+// leave. A hidden backbone panel never intersects, so switching tabs costs
+// nothing until its rows are actually on screen.
+(function () {
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      var vids = e.target.querySelectorAll('video');
+      if (e.isIntersecting) {
+        vids.forEach(function (v) {
+          if (v.dataset.src) { v.src = v.dataset.src; delete v.dataset.src; }
+          v.play().catch(function () {});
+        });
+      } else {
+        vids.forEach(function (v) { v.pause(); });
+      }
+    });
+  }, { rootMargin: '500px 0px' });
+  document.querySelectorAll('.row-container').forEach(function (r) { io.observe(r); });
+
+  var panels = document.querySelectorAll('.bb-panel');
+  document.querySelectorAll('.bb-tabs .showcase-tab').forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var bb = tab.dataset.bb;
+      document.querySelectorAll('.bb-tabs .showcase-tab').forEach(function (t) {
+        t.classList.toggle('is-active', t === tab);
+      });
+      panels.forEach(function (pn) {
+        var on = pn.dataset.bb === bb;
+        pn.classList.toggle('is-active', on);
+        if (!on) pn.querySelectorAll('video').forEach(function (v) { v.pause(); });
+      });
+    });
+  });
+})();
+
+// Showcase: the arrow is the control. Pressing it applies that scene's force
+// and runs the clip; nothing is fetched until then.
+(function () {
+  var scenes = document.querySelectorAll('.showcase-scene');
+  if (!scenes.length) return;
+
+  function start(scene) {
+    var v = scene.querySelector('video');
+    if (v.dataset.src) { v.src = v.dataset.src; delete v.dataset.src; }
+    scene.querySelector('.showcase-stage').classList.add('is-playing');
+    v.currentTime = 0;
+    v.play().catch(function () {});
+  }
+
+  scenes.forEach(function (scene) {
+    scene.querySelector('.showcase-stage').addEventListener('click', function () {
+      start(scene);
+    });
+  });
+
+  document.querySelectorAll('.showcase-tab').forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var id = tab.dataset.scene;
+      document.querySelectorAll('.showcase-tab').forEach(function (t) {
+        t.classList.toggle('is-active', t === tab);
+      });
+      scenes.forEach(function (s) {
+        var on = s.dataset.scene === id;
+        s.classList.toggle('is-active', on);
+        if (!on) {
+          s.querySelector('video').pause();
+          s.querySelector('.showcase-stage').classList.remove('is-playing');
+        }
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
