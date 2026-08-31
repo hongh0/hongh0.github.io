@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link rel="stylesheet" href="./static/css/index.css?v=43b071ed3e">
+  <link rel="stylesheet" href="./static/css/index.css?v=eda6600628">
 </head>
 <body>
 <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -70,32 +70,18 @@
     <div class="showcase-scenes">
         <div class="showcase-scene is-active" data-scene="041">
           <div class="showcase-stage" data-stage>
-            <video class="showcase-video is-active" data-clip="left" muted playsinline preload="none"
+            <video class="showcase-video" muted loop playsinline preload="none"
                    poster="./static/images/posters/041/ours_wanmove.jpg"
                    data-src="./static/videos/cases/041/ours_wanmove.mp4"></video>
-            <video class="showcase-video" data-clip="back" muted playsinline preload="none"
-                   poster="./static/images/posters/041/force_back.jpg"
-                   data-src="./static/videos/cases/041/force_back.mp4"></video>
-            <video class="showcase-video" data-clip="swirl" muted playsinline preload="none"
-                   poster="./static/images/posters/041/force_swirl.jpg"
-                   data-src="./static/videos/cases/041/force_swirl.mp4"></video>
-            <button class="force-arrow" type="button" data-clip="left" style="left:19%; top:52%"
+            <button class="force-arrow" type="button" style="left:20%; top:50%"
                     aria-label="Leftward force">
-              <i class="fas fa-arrow-left"></i><span>Leftward force</span>
-            </button>
-            <button class="force-arrow" type="button" data-clip="back" style="left:52%; top:17%"
-                    aria-label="Backward force">
-              <i class="fas fa-arrow-up"></i><span>Backward force</span>
-            </button>
-            <button class="force-arrow" type="button" data-clip="swirl" style="left:79%; top:63%"
-                    aria-label="Swirl the fluid">
-              <i class="fas fa-redo"></i><span>Swirl</span>
+              <i class="fas fa-arrow-left" style="transform: rotate(0deg)"></i><span>Leftward force</span>
             </button>
           </div>
         </div>
         <div class="showcase-scene" data-scene="040">
           <div class="showcase-stage" data-stage>
-            <video class="showcase-video is-active" muted loop playsinline preload="none"
+            <video class="showcase-video" muted loop playsinline preload="none"
                    poster="./static/images/posters/040/ours_vace.jpg"
                    data-src="./static/videos/cases/040/ours_vace.mp4"></video>
             <button class="force-arrow" type="button" style="left:24%; top:66%"
@@ -327,48 +313,17 @@
   var scenes = document.querySelectorAll('.showcase-scene');
   if (!scenes.length) return;
 
-  // A stage may hold several clips, one per force. Only the active one is
-  // displayed; the rest stay in the DOM so their posters can be swapped in
-  // without a reflow.
-  function reset(scene) {
-    scene.querySelector('.showcase-stage').classList.remove('is-playing');
-    var vids = scene.querySelectorAll('video');
-    vids.forEach(function (v, i) {
-      v.pause();
-      try { v.currentTime = 0; } catch (e) {}
-      v.classList.toggle('is-active', i === 0);
-    });
-  }
-
-  function start(scene, clip) {
-    var vids = scene.querySelectorAll('video');
-    var target = clip
-      ? scene.querySelector('video[data-clip="' + clip + '"]')
-      : vids[0];
-    if (!target) return;
-    vids.forEach(function (v) {
-      if (v !== target) { v.pause(); v.classList.remove('is-active'); }
-    });
-    target.classList.add('is-active');
-    if (target.dataset.src) { target.src = target.dataset.src; delete target.dataset.src; }
+  function start(scene) {
+    var v = scene.querySelector('video');
+    if (v.dataset.src) { v.src = v.dataset.src; delete v.dataset.src; }
     scene.querySelector('.showcase-stage').classList.add('is-playing');
-    target.currentTime = 0;
-    target.play().catch(function () {});
+    v.currentTime = 0;
+    v.play().catch(function () {});
   }
 
   scenes.forEach(function (scene) {
-    scene.querySelectorAll('.force-arrow').forEach(function (btn) {
-      btn.addEventListener('click', function (ev) {
-        ev.stopPropagation();          // the stage behind it also starts a clip
-        start(scene, btn.dataset.clip);
-      });
-    });
     scene.querySelector('.showcase-stage').addEventListener('click', function () {
-      start(scene, null);
-    });
-    // Looping clips never fire this, so scenes that should keep looping do.
-    scene.querySelectorAll('video').forEach(function (v) {
-      v.addEventListener('ended', function () { reset(scene); });
+      start(scene);
     });
   });
 
@@ -381,7 +336,10 @@
       scenes.forEach(function (s) {
         var on = s.dataset.scene === id;
         s.classList.toggle('is-active', on);
-        if (!on) { reset(s); }
+        if (!on) {
+          s.querySelector('video').pause();
+          s.querySelector('.showcase-stage').classList.remove('is-playing');
+        }
       });
     });
   });

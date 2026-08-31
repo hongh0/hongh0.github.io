@@ -161,8 +161,6 @@ body { background: var(--bg); font-family: var(--font-sans); color: var(--body);
   box-shadow: 0 10px 26px rgba(31,45,61,.12); }
 .showcase-stage video { display: block; width: 100%; aspect-ratio: 16 / 10;
   object-fit: contain; background: var(--bg-alt); }
-/* one clip per force, stacked in the same box */
-.showcase-stage video:not(.is-active) { display: none; }
 
 /* the force that drives the scene, sitting where it acts */
 .force-arrow { position: absolute; transform: translate(-50%, -50%);
