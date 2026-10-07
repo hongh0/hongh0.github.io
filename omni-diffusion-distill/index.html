@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Omni-Diffusion-Distill</title>
+  <meta name="description" content="Few-step distillation of unified multimodal diffusion large language models: 8-step image generation and 64-step understanding with 18.2x and 21.2x wall-clock speedups.">
+  <meta property="og:title" content="Omni-Diffusion-Distill">
+  <meta property="og:description" content="Few-Step Distillation of Unified Multimodal Diffusion Large Language Models">
+  <meta property="og:image" content="static/images/teaser.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/style.css">
+  <script>
+    // Apply the saved theme before first paint.
+    try { const t = localStorage.getItem("odd-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a class="nav-logo" href="#top">Omni-Diffusion-Distill</a>
+  <div class="nav-links">
+    <a href="#motivation">Motivation</a>
+    <a href="#speed">Speed</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#comparison">Comparison</a>
+    <a href="#method">Method</a>
+    <a href="#bibtex">BibTeX</a>
+  </div>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+    <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+    <svg class="icon-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>
+  </button>
+</nav>
+
+<!-- ============================== HERO ============================== -->
+<header class="hero" id="top">
+  <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-inner">
+    <p class="eyebrow">Unified multimodal dLLM &middot; few-step distillation</p>
+    <h1 class="title">OMNI-DIFFUSION-DISTILL</h1>
+    <p class="subtitle">Few-Step Distillation of Unified Multimodal Diffusion Large Language Models</p>
+
+    <div class="authors">
+      <span><a class="author" data-author="Hong Huang">Hong Huang</a><sup>1,2</sup></span>
+      <span><a class="author" data-author="Chenhongyi Yang">Chenhongyi Yang</a><sup>3</sup></span>
+      <span><a class="author" data-author="Junzhe Sun">Junzhe Sun</a><sup>2</sup></span>
+      <span><a class="author" data-author="Animesh Sinha">Animesh Sinha</a><sup>2</sup></span>
+      <span><a class="author" data-author="Wuyang Chen">Wuyang Chen</a><sup>1&dagger;</sup></span>
+      <span><a class="author" data-author="Yifan Jiang">Yifan Jiang</a><sup>3&dagger;</sup></span>
+    </div>
+    <div class="affils">
+      <span><sup>1</sup>Simon Fraser University</span>
+      <span class="dot">&middot;</span>
+      <span><sup>2</sup>Meta Superintelligence Labs</span>
+      <span class="dot">&middot;</span>
+      <span><sup>3</sup>Meta Reality Labs</span>
+    </div>
+    <div class="affils corr"><span><sup>&dagger;</sup>Corresponding authors</span></div>
+
+    <div class="buttons" id="link-buttons">
+      <a class="btn" data-link="paper"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg>Paper</a>
+      <a class="btn" data-link="arxiv"><svg viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></svg>arXiv</a>
+      <a class="btn" data-link="code"><svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>Code</a>
+      <a class="btn" data-link="model"><svg viewBox="0 0 24 24"><path d="M12 2l9 5v10l-9 5-9-5V7z"/><path d="M3 7l9 5 9-5M12 12v10"/></svg>Model</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><span class="stat-num" data-count="18.2">18.2</span><span class="stat-unit">&times;</span><span class="stat-label">faster text-to-image<br><em>128 &rarr; 8 steps</em></span></div>
+      <div class="stat"><span class="stat-num" data-count="34.9">34.9</span><span class="stat-unit">&times;</span><span class="stat-label">faster image editing<br><em>128 &rarr; 8 steps</em></span></div>
+      <div class="stat"><span class="stat-num" data-count="21.2">21.2</span><span class="stat-unit">&times;</span><span class="stat-label">faster understanding<br><em>512 &rarr; 64 steps</em></span></div>
+      <div class="stat"><span class="stat-num" data-count="0.828" data-decimals="3">0.828</span><span class="stat-unit"></span><span class="stat-label">GenEval at 8 steps<br><em>teacher at 128 steps: 0.867</em></span></div>
+    </div>
+  </div>
+  <a class="scroll-cue" href="#tldr" aria-label="Scroll down"><span></span></a>
+</header>
+
+<main>
+
+<!-- ============================== TL;DR ============================== -->
+<section class="section" id="tldr">
+  <div class="container narrow reveal">
+    <p class="tldr"><span class="tag">TL;DR</span>
+      One few-step student for every task of a unified discrete diffusion LLM. It generates an image in
+      <strong>8</strong> steps instead of 128 and answers a question in <strong>64</strong> steps instead of 512,
+      while staying close to the full-step teacher.</p>
+  </div>
+  <div class="container reveal">
+    <figure class="figure-card">
+      <img src="static/images/teaser.jpg" alt="Overview of tasks supported by the few-step student" loading="lazy" class="zoomable">
+    </figure>
+  </div>
+</section>
+
+<!-- ============================== MOTIVATION ============================== -->
+<section class="section section-alt" id="motivation">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="kicker">Motivation</span>
+      <h2>Why fewer steps break a unified dLLM</h2>
+      <p>Cutting decoding steps fails differently in each modality. Text tokens committed in the same step cannot see each other,
+        so the output starts repeating. Images must absorb classifier-free guidance, and fitting the sharpened guided target
+        collapses the student's entropy.</p>
+    </div>
+    <figure class="figure-card reveal">
+      <img src="static/images/motivation.png" alt="Repetition under parallel decoding and entropy collapse under guidance distillation" loading="lazy" class="zoomable">
+      <figcaption>Left: decoding more text tokens in parallel increases repetition. Right: a student distilled toward the low-entropy guided target keeps losing entropy; entropy-matched guidance keeps it high.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============================== SPEED ============================== -->
+<section class="section" id="speed">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="kicker">01 &middot; Acceleration</span>
+      <h2>Few steps, real wall-clock speedups</h2>
+      <p>Each square is one output token. The teacher commits a few tokens per step and runs extra guidance passes;
+        the student commits many at once without guidance. Timing below is scaled from measured A100 latency.</p>
+    </div>
+
+    <div class="race reveal" id="race">
+      <div class="race-controls">
+        <div class="seg" id="race-task" role="tablist">
+          <button class="active" data-task="t2i">Text-to-Image</button>
+          <button data-task="i2i">Image Editing</button>
+          <button data-task="mmu">Understanding</button>
+        </div>
+        <button class="btn btn-small" id="race-replay">
+          <svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.3-5.6M4 4v4h4"/></svg>Replay
+        </button>
+      </div>
+      <div class="race-context" id="race-context"></div>
+      <div class="race-lanes">
+        <div class="lane" id="lane-teacher">
+          <div class="lane-head"><span class="lane-name">Teacher</span><span class="lane-meta" data-meta></span></div>
+          <div class="board"><div class="board-art" data-art></div><div class="tiles" data-tiles></div><div class="textboard" data-text hidden></div></div>
+          <div class="lane-foot">
+            <div class="meter"><div class="meter-fill" data-fill></div></div>
+            <div class="clock"><span data-step>step 0</span><span data-time>0.0 s</span></div>
+          </div>
+        </div>
+        <div class="lane lane-ours" id="lane-ours">
+          <div class="lane-head"><span class="lane-name">Omni-Diffusion-Distill</span><span class="lane-meta" data-meta></span></div>
+          <div class="board"><div class="board-art" data-art></div><div class="tiles" data-tiles></div><div class="textboard" data-text hidden></div>
+            <div class="done-badge" data-done><span data-speedup>18.2&times;</span> faster</div></div>
+          <div class="lane-foot">
+            <div class="meter"><div class="meter-fill" data-fill></div></div>
+            <div class="clock"><span data-step>step 0</span><span data-time>0.0 s</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="latency reveal" id="latency">
+      <h3>Latency per output on one A100</h3>
+      <div class="legend"><span class="key key-teacher"></span>Teacher (full-step)<span class="key key-ours"></span>Omni-Diffusion-Distill</div>
+      <div class="bars" id="latency-bars"></div>
+      <p class="note">Understanding decodes block by block with an exact KV cache, so its speedup exceeds the 8&times; step reduction.</p>
+    </div>
+
+    <figure class="figure-card reveal">
+      <img src="static/images/step_quality.png" alt="Benchmark scores across decoding budgets" loading="lazy" class="zoomable">
+      <figcaption>Quality across decoding budgets. The student stays near the full-step teacher as steps shrink, while the teacher run at few steps degrades.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============================== GALLERY ============================== -->
+<section class="section section-alt" id="gallery">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="kicker">02 &middot; Gallery</span>
+      <h2>One student, every task</h2>
+      <p>All samples come from the same distilled model, at 8 steps for images and 64 steps for text.</p>
+    </div>
+    <div class="tabs reveal" id="gallery-tabs" role="tablist">
+      <button class="active" data-tab="t2i">Text-to-Image</button>
+      <button data-tab="edit">Image Editing</button>
+      <button data-tab="control">Controllable Generation</button>
+      <button data-tab="mmu">Multimodal Understanding</button>
+    </div>
+    <div class="gallery reveal" id="gallery-grid"></div>
+  </div>
+</section>
+
+<!-- ============================== COMPARISON ============================== -->
+<section class="section" id="comparison">
+  <div class="container wide">
+    <div class="section-head reveal">
+      <span class="kicker">03 &middot; Comparison</span>
+      <h2>Against the teacher and other distillation methods</h2>
+      <p>Same prompt and seed for every method. Distilled models use 8 image steps or 64 text steps; the teacher uses its full budget of 128 or 512 steps.</p>
+    </div>
+    <div class="tabs reveal" id="compare-tabs" role="tablist">
+      <button class="active" data-tab="t2i">Text-to-Image</button>
+      <button data-tab="edit">Image Editing</button>
+      <button data-tab="control">Controllable Generation</button>
+      <button data-tab="mmu">Understanding</button>
+    </div>
+    <div class="chips reveal" id="compare-chips"></div>
+    <div class="compare reveal" id="compare-grid"></div>
+
+    <div class="scores reveal">
+      <div class="scores-head">
+        <h3>Benchmark overview</h3>
+        <div class="seg" id="score-task">
+          <button class="active" data-task="t2i">Text-to-Image</button>
+          <button data-task="mmu">Open-ended Understanding</button>
+        </div>
+      </div>
+      <div class="score-table-wrap"><table class="score-table" id="score-table"></table></div>
+      <div class="radars">
+        <img src="static/images/radar_t2i.png" alt="Radar chart of text-to-image benchmarks" loading="lazy" class="zoomable">
+        <img src="static/images/radar_mmu.png" alt="Radar chart of open-ended understanding benchmarks" loading="lazy" class="zoomable">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== METHOD ============================== -->
+<section class="section section-alt" id="method">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="kicker">04 &middot; Method</span>
+      <h2>Two stages, two modality-specific fixes</h2>
+    </div>
+    <figure class="figure-card reveal">
+      <img src="static/images/pipeline.png" alt="Two-stage distillation pipeline" loading="lazy" class="zoomable">
+    </figure>
+    <div class="cards">
+      <article class="card reveal">
+        <span class="card-num">Stage 1</span>
+        <h3>Off-policy trajectory replay</h3>
+        <p>The student learns to skip decoding steps by matching teacher predictions cached along offline trajectories, with no teacher forward pass during training.</p>
+      </article>
+      <article class="card reveal">
+        <span class="card-num">Stage 2</span>
+        <h3>On-policy refinement</h3>
+        <p>The student is refined on states from its own rollouts, so it learns to recover from the errors it actually makes at inference.</p>
+      </article>
+      <article class="card reveal card-text">
+        <span class="card-num">Text</span>
+        <h3>Pairwise collision penalty</h3>
+        <p>Tokens committed in the same step cannot see each other. Penalizing the probability that two of them pick the same token cuts repetition loops from 74.4% to 7.7%.</p>
+      </article>
+      <article class="card reveal card-image">
+        <span class="card-num">Image</span>
+        <h3>Entropy-matched guidance</h3>
+        <p>Matching a guidance-sharpened target collapses the student's entropy. Rescaling the target to a fixed fraction of the conditional entropy keeps the student diverse and editable.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== BIBTEX ============================== -->
+<section class="section" id="bibtex">
+  <div class="container narrow reveal">
+    <div class="section-head"><span class="kicker">05 &middot; Citation</span><h2>BibTeX</h2></div>
+    <div class="bib">
+      <button class="btn btn-small copy" id="copy-bib">Copy</button>
+      <pre><code id="bib-code"></code></pre>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="lightbox" id="lightbox" hidden><img alt=""><button aria-label="Close">&times;</button></div>
+
+<script src="static/data/content.js"></script>
+<script src="static/js/main.js"></script>
+</body>
+</html>
