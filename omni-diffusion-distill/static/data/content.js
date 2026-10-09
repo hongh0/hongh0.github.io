@@ -6,8 +6,8 @@
  */
 window.SITE = {
   links: {
-    paper: "",   // PDF or OpenReview link
-    arxiv: "",   // e.g. "https://arxiv.org/abs/xxxx.xxxxx"
+    paper: "https://arxiv.org/pdf/2610.10990",   // PDF or OpenReview link
+    arxiv: "https://arxiv.org/abs/2610.10990",   // e.g. "https://arxiv.org/abs/xxxx.xxxxx"
     code: "",    // e.g. "https://github.com/<org>/omni-diffusion-distill"
     model: "",   // e.g. "https://huggingface.co/<org>/omni-diffusion-distill"
   },
@@ -658,7 +658,7 @@ window.SITE = {
   bibtex: `@article{huang2026omnidiffusiondistill,
   title   = {Omni-Diffusion-Distill: Few-Step Distillation of Unified Multimodal Diffusion Large Language Models},
   author  = {Huang, Hong and Yang, Chenhongyi and Sun, Junzhe and Sinha, Animesh and Chen, Wuyang and Jiang, Yifan},
-  journal = {arXiv preprint},
+  journal = {arXiv preprint arXiv:2610.10990},
   year    = {2026}
 }`,
 };
