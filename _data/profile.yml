@@ -41,6 +41,11 @@ education:
   date: Sep. 2020 - Jun. 2024
 
 experience:
+- name: Meta Reality Labs
+  logo: /assets/images/badges/Meta.png
+  position: >-
+    Research Scientist Intern (Managers: <a href="https://zouchuhang.github.io/" target="_blank">Chuhang Zou</a>, <a href="https://scholar.google.com/citations?user=ddFnVyYAAAAJ&hl=en" target="_blank">Yuan Tian</a>)
+  date: 2026.10 - 2027.02
 - name: Meta
   logo: /assets/images/badges/Meta.png
   position: >-
