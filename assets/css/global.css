@@ -91,44 +91,47 @@ div.lazy {
 }
 
 
-/* ---- publication links as icon pills ---- */
+/* ---- publication links as small icon chips ---- */
 .pub-btns {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
     margin-top: 6px;
+    line-height: 2;
 }
 
 a.pub-btn {
     display: inline-flex;
     align-items: center;
-    gap: 5px;
-    padding: 2px 10px;
+    margin: 0 4px 4px 0;
+    padding: 1px 9px;
     font-size: 0.78rem;
     font-weight: 700;
     line-height: 1.6;
-    color: #6096B4;
-    background-color: rgba(96, 150, 180, 0.08);
-    border: 1px solid rgba(96, 150, 180, 0.35);
-    border-radius: 999px;
+    color: #4a5a45;
+    background-color: #f1f4ee;
+    border-radius: 6px;
     text-decoration: none;
-    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    vertical-align: middle;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+a.pub-btn i {
+    margin-right: 5px;
+    color: #748E63;
+    transition: color 0.15s ease;
+}
+
+a.pub-btn .pub-btn-logo {
+    height: 1.05em;
+    margin-right: 5px;
 }
 
 a.pub-btn:hover {
     color: #fff;
-    background-color: #6096B4;
-    border-color: #6096B4;
+    background-color: #748E63;
     text-decoration: none;
 }
 
-a.pub-btn i {
-    font-size: 0.85em;
-}
-
-.pub-btn-emoji {
-    font-size: 0.95em;
-    line-height: 1;
+a.pub-btn:hover i {
+    color: #fff;
 }
 
 /* ---- publication rows: gentle highlight on hover ---- */
