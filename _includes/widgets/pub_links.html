@@ -9,16 +9,17 @@ name (and the URL for GitHub / Hugging Face).
   {% assign url = link[1].url | default: link[1] %}
   {% assign target = link[1].target | default: "_blank" %}
   {% assign key = name | downcase %}
-  {% assign icon = "fas fa-link" %}
-  {% if key == "paper" or key == "pdf" %}{% assign icon = "fas fa-file-lines" %}
-  {% elsif key == "arxiv" %}{% assign icon = "ai ai-arxiv" %}
-  {% elsif key == "project" or key == "website" or key == "page" %}{% assign icon = "fas fa-globe" %}
-  {% elsif key == "code" or url contains "github.com" %}{% assign icon = "fab fa-github" %}
-  {% elsif key == "video" %}{% assign icon = "fas fa-video" %}
-  {% elsif key == "slides" %}{% assign icon = "fas fa-person-chalkboard" %}
-  {% elsif key == "poster" %}{% assign icon = "fas fa-image" %}
-  {% elsif key == "benchmark" or key == "dataset" or key == "data" %}{% assign icon = "fas fa-database" %}
+  {% assign icon = "fas fa-link" %}{% assign kind = "link" %}
+  {% if key == "paper" or key == "pdf" %}{% assign icon = "fas fa-file-lines" %}{% assign kind = "paper" %}
+  {% elsif key == "arxiv" %}{% assign icon = "ai ai-arxiv" %}{% assign kind = "paper" %}
+  {% elsif key == "project" or key == "website" or key == "page" %}{% assign icon = "fas fa-globe" %}{% assign kind = "project" %}
+  {% elsif key == "code" or url contains "github.com" %}{% assign icon = "fab fa-github" %}{% assign kind = "code" %}
+  {% elsif key == "video" %}{% assign icon = "fas fa-video" %}{% assign kind = "video" %}
+  {% elsif key == "slides" %}{% assign icon = "fas fa-person-chalkboard" %}{% assign kind = "video" %}
+  {% elsif key == "poster" %}{% assign icon = "fas fa-image" %}{% assign kind = "video" %}
+  {% elsif key == "benchmark" or key == "dataset" or key == "data" %}{% assign icon = "fas fa-database" %}{% assign kind = "data" %}
   {% endif %}
-  <a class="pub-btn" target="{{ target }}" href="{{ url }}">{% if url contains "huggingface.co" %}<img class="pub-btn-logo" src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="">{% else %}<i class="{{ icon }}"></i>{% endif %}<span>{{ name }}</span></a>
+  {% if url contains "huggingface.co" %}{% assign kind = "data" %}{% endif %}
+  <a class="pub-btn pub-btn-{{ kind }}" target="{{ target }}" href="{{ url }}">{% if url contains "huggingface.co" %}<img class="pub-btn-logo" src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="">{% else %}<i class="{{ icon }}"></i>{% endif %}<span>{{ name }}</span></a>
 {% endfor %}
 </div>

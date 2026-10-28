@@ -105,8 +105,8 @@ a.pub-btn {
     font-size: 0.78rem;
     font-weight: 700;
     line-height: 1.6;
-    color: #4a5a45;
-    background-color: #f1f4ee;
+    color: #3d4a55;
+    background-color: #eef3f7;
     border-radius: 6px;
     text-decoration: none;
     vertical-align: middle;
@@ -115,7 +115,7 @@ a.pub-btn {
 
 a.pub-btn i {
     margin-right: 5px;
-    color: #748E63;
+    color: #6096B4;
     transition: color 0.15s ease;
 }
 
@@ -126,7 +126,7 @@ a.pub-btn .pub-btn-logo {
 
 a.pub-btn:hover {
     color: #fff;
-    background-color: #748E63;
+    background-color: #6096B4;
     text-decoration: none;
 }
 
@@ -154,19 +154,151 @@ a.pub-btn:hover i {
 /* ---- links in the bio use the site accent ---- */
 .text-profile-bio a,
 .custom-radius .card-body p a {
-    color: #748E63;
+    color: #6096B4;
 }
 
 .text-profile-bio a:hover,
 .custom-radius .card-body p a:hover {
-    color: #5d7450;
+    color: #3f7593;
 }
 
-/* ---- one theme color for every link ---- */
-a {
-    color: #748E63;
+/* =====================================================================
+   Polish layer: background, glass navbar, cards, headings, avatar, icons
+   ===================================================================== */
+:root {
+    --fgz-blue: #6096B4;
+    --fgz-teal: #48A6A7;
+    --fgz-green: #40A578;
+    --fgz-lavender: #98A8F8;
+    --fgz-accent: #6096B4;
+    --fgz-accent-soft: #eaf2f7;
 }
 
-a:hover {
-    color: #5d7450;
+body {
+    background:
+        radial-gradient(1200px 500px at 15% -10%, rgba(96, 150, 180, 0.14), transparent 60%),
+        radial-gradient(900px 420px at 95% 0%, rgba(72, 166, 167, 0.12), transparent 60%),
+        #f5f8fa;
+    background-attachment: fixed;
+    color: #2f3a2b;
 }
+
+/* glassy navbar */
+.navbar.bg-light {
+    background-color: rgba(255, 255, 255, 0.72) !important;
+    -webkit-backdrop-filter: saturate(160%) blur(10px);
+    backdrop-filter: saturate(160%) blur(10px);
+    box-shadow: 0 1px 0 rgba(96, 150, 180, 0.12), 0 6px 20px rgba(47, 58, 43, 0.05) !important;
+    opacity: 1;
+}
+
+/* cards: softer shadow, lift on hover, gentle fade-in */
+.custom-radius {
+    border-radius: 18px !important;
+    box-shadow: 0 1px 2px rgba(47, 58, 43, 0.04), 0 8px 28px rgba(47, 58, 43, 0.06) !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    animation: fgz-fade-up 0.6s ease both;
+}
+
+.custom-radius:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(47, 58, 43, 0.05), 0 16px 40px rgba(47, 58, 43, 0.10) !important;
+}
+
+@keyframes fgz-fade-up {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .custom-radius { animation: none; transition: none; }
+    .custom-radius:hover { transform: none; }
+}
+
+/* section titles get a small accent bar (publication titles are excluded) */
+.custom-radius h5:not(.font-weight-normal),
+.custom-radius h6.border-bottom,
+.custom-radius .h3 {
+    font-weight: 800;
+    letter-spacing: 0.01em;
+}
+
+.custom-radius h5:not(.font-weight-normal)::before,
+.custom-radius h6.border-bottom::before,
+.custom-radius .h3::before {
+    content: "";
+    display: inline-block;
+    width: 5px;
+    height: 0.95em;
+    margin-right: 10px;
+    border-radius: 3px;
+    background: linear-gradient(180deg, var(--fgz-teal), var(--fgz-blue));
+    vertical-align: -0.1em;
+}
+
+/* avatar: gradient ring */
+.avatar-container .img-thumbnail {
+    padding: 4px;
+    border: 0;
+    background: linear-gradient(135deg, var(--fgz-lavender), var(--fgz-blue) 45%, var(--fgz-teal) 75%, var(--fgz-green));
+    box-shadow: 0 10px 30px rgba(96, 150, 180, 0.28) !important;
+}
+
+/* social icons: round soft badges */
+.h4 a.follow_href {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.1rem;
+    height: 2.1rem;
+    margin: 0 2px;
+    padding: 0 !important;
+    font-size: 1rem;
+    border-radius: 50%;
+    background-color: var(--fgz-accent-soft);
+    color: var(--fgz-accent);
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.h4 a.follow_href:hover {
+    transform: translateY(-2px);
+    background-color: var(--fgz-accent);
+    color: #fff;
+}
+
+/* publication covers: rounded with a slight zoom on hover */
+.publication-cover {
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.publication-row:hover .publication-cover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 22px rgba(47, 58, 43, 0.15);
+}
+
+.pub-badge {
+    box-shadow: 0 2px 6px rgba(72, 166, 167, 0.35) !important;
+}
+
+/* each social icon keeps its own hue */
+.h4 a.follow_href:nth-child(4n+1) { color: var(--fgz-blue); }
+.h4 a.follow_href:nth-child(4n+2) { color: var(--fgz-teal); }
+.h4 a.follow_href:nth-child(4n+3) { color: var(--fgz-green); }
+.h4 a.follow_href:nth-child(4n+4) { color: #7b8be0; }
+.h4 a.follow_href:nth-child(4n+1):hover { background-color: var(--fgz-blue); }
+.h4 a.follow_href:nth-child(4n+2):hover { background-color: var(--fgz-teal); }
+.h4 a.follow_href:nth-child(4n+3):hover { background-color: var(--fgz-green); }
+.h4 a.follow_href:nth-child(4n+4):hover { background-color: #7b8be0; }
+.h4 a.follow_href:hover { color: #fff; }
+
+/* publication chips: one hue per link type */
+a.pub-btn-paper   { --chip: #d0605e; }
+a.pub-btn-project { --chip: #6096B4; }
+a.pub-btn-code    { --chip: #3d4a55; }
+a.pub-btn-data    { --chip: #e0a030; }
+a.pub-btn-video   { --chip: #48A6A7; }
+a.pub-btn-link    { --chip: #40A578; }
+a.pub-btn i { color: var(--chip); }
+a.pub-btn:hover { background-color: var(--chip); color: #fff; }
+a.pub-btn:hover i { color: #fff; }
