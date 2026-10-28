@@ -8,7 +8,7 @@ pub_ab:         "ArXiv 2026"
 
 abstract: >-
   Training-free framework that grounds pretrained video generators in fluid physics via simulation-guided planning and latent guidance.
-cover:          /assets/images/publications/fluid_gen_zero.png
+cover:          /assets/images/publications/fluid_gen_zero.gif
 authors:
   - Hong Huang
   - Yuqiu Liu
@@ -19,4 +19,6 @@ authors:
 links:
   Paper: https://arxiv.org/abs/2610.10984
   Project: https://hongh0.github.io/Fluid-Gen-Zero/
+  Code: https://github.com/hongh0/Fluid-Gen-Zero
+  Benchmark: https://huggingface.co/datasets/hhkka/FluidGen-Benchmark
 ---
