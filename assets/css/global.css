@@ -154,10 +154,19 @@ a.pub-btn:hover i {
 /* ---- links in the bio use the site accent ---- */
 .text-profile-bio a,
 .custom-radius .card-body p a {
-    color: #6096B4;
+    color: #748E63;
 }
 
 .text-profile-bio a:hover,
 .custom-radius .card-body p a:hover {
-    color: #3f7593;
+    color: #5d7450;
+}
+
+/* ---- one theme color for every link ---- */
+a {
+    color: #748E63;
+}
+
+a:hover {
+    color: #5d7450;
 }

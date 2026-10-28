@@ -10,7 +10,7 @@ name (and the URL for GitHub / Hugging Face).
   {% assign target = link[1].target | default: "_blank" %}
   {% assign key = name | downcase %}
   {% assign icon = "fas fa-link" %}
-  {% if key == "paper" or key == "pdf" %}{% assign icon = "fas fa-file-pdf" %}
+  {% if key == "paper" or key == "pdf" %}{% assign icon = "fas fa-file-lines" %}
   {% elsif key == "arxiv" %}{% assign icon = "ai ai-arxiv" %}
   {% elsif key == "project" or key == "website" or key == "page" %}{% assign icon = "fas fa-globe" %}
   {% elsif key == "code" or url contains "github.com" %}{% assign icon = "fab fa-github" %}
