@@ -90,3 +90,71 @@ div.lazy {
     font-family: Source Code Pro, monospace;
 }
 
+
+/* ---- publication links as icon pills ---- */
+.pub-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 6px;
+}
+
+a.pub-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 2px 10px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.6;
+    color: #6096B4;
+    background-color: rgba(96, 150, 180, 0.08);
+    border: 1px solid rgba(96, 150, 180, 0.35);
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+a.pub-btn:hover {
+    color: #fff;
+    background-color: #6096B4;
+    border-color: #6096B4;
+    text-decoration: none;
+}
+
+a.pub-btn i {
+    font-size: 0.85em;
+}
+
+.pub-btn-emoji {
+    font-size: 0.95em;
+    line-height: 1;
+}
+
+/* ---- publication rows: gentle highlight on hover ---- */
+.publication-row {
+    transition: background-color 0.15s ease;
+}
+
+.publication-row:hover {
+    background-color: rgba(96, 150, 180, 0.05);
+}
+
+/* ---- profile card stays in view on wide screens ---- */
+@media (min-width: 768px) {
+    .sticky-profile {
+        position: sticky;
+        top: 5.5rem;
+    }
+}
+
+/* ---- links in the bio use the site accent ---- */
+.text-profile-bio a,
+.custom-radius .card-body p a {
+    color: #6096B4;
+}
+
+.text-profile-bio a:hover,
+.custom-radius .card-body p a:hover {
+    color: #3f7593;
+}

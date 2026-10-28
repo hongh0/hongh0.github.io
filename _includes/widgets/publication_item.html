@@ -42,7 +42,7 @@
 
 
 <div class="d-none d-md-block">
-    <div class="row no-gutters {% unless include.hide_bottom_border %}border-bottom{% endunless %} border-gray {% if item.selected and page.path contains 'publications' %}selected-publication{% endif %}">
+    <div class="row no-gutters publication-row {% unless include.hide_bottom_border %}border-bottom{% endunless %} border-gray {% if item.selected and page.path contains 'publications' %}selected-publication{% endif %}">
         <div class="col-md-4 col-xl-3 mb-md-0 p-md-3 d-flex align-items-start publication-container">
             {%- if item.cover -%}
             <img data-src="{{ item.cover | relative_url }}" alt="{{ item.title }}" class="lazy publication-cover rounded-sm" src="{{ '/assets/images/empty_300x200.png' | relative_url }}">
@@ -65,15 +65,7 @@
             <p class="mt-0 mb-0 small ">{{item.pub_pre}}<i><b>{{ item.pub }}</b></i>{{ item.pub_post }} {{ item.pub_date }} {{ item.pub_last }}</p>
             <p class="mt-0 mb-0 small text-muted">{{ item.abstract }}</p>
             
-            <p class="small pb-0 mb-0 lh-125 text-muted abstract-links">
-                {% for link in item.links %}
-                {% if link[1].url %}
-                <a target="{{ link[1]['target'] }}" href="{{ link[1]['url'] }}">[{{ link[0] }}]</a>
-                {% else %}
-                <a target="_blank" href="{{ link[1] }}" class="item_link">[{{ link[0] }}]</a>
-                {% endif %}
-                {% endfor %}
-            </p>
+            {% include widgets/pub_links.html links=item.links %}
 
         </div>
     </div>
@@ -92,18 +84,10 @@
                   {% endif %}
                 </h5>
                 <p class="mt-0 mb-0 small">{% include widgets/author_list.html authors=item.authors %}</p>
-                <p class="mt-0 mb-0 small>{{item.pub_pre}}<i>{{ item.pub }}</i>{{ item.pub_post }} {{ item.pub_date }} {{ item.pub_last }}</p>
+                <p class="mt-0 mb-0 small">{{item.pub_pre}}<i>{{ item.pub }}</i>{{ item.pub_post }} {{ item.pub_date }} {{ item.pub_last }}</p>
                 <p class="mt-0 mb-0 small text-muted">{{ item.abstract }}</p>
                 
-                <p class="small pb-0 mb-0 lh-125 text-muted abstract-links">
-                    {% for link in item.links %}
-                    {% if link[1].url %}
-                    <a target="{{ link[1]['target'] }}" href="{{ link[1]['url'] }}">[{{ link[0] }}]</a>
-                    {% else %}
-                    <a target="_blank" href="{{ link[1] }}" class="item_link">[{{ link[0] }}]</a>
-                    {% endif %}
-                    {% endfor %}
-                </p>
+                {% include widgets/pub_links.html links=item.links %}
             </div>
             {%- if item.pub_ab -%}
             <div class="pub-badge">{{ item.pub_ab }}</div>

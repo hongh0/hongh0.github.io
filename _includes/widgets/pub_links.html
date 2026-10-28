@@ -1,0 +1,26 @@
+{%- comment -%}
+Publication links as small icon pills. Each entry of `item.links` is
+`Name: url` or `Name: {url: ..., target: ...}`; the icon is chosen from the
+name (and the URL for arXiv / Hugging Face).
+{%- endcomment -%}
+<div class="pub-btns">
+{%- for link in include.links -%}
+  {%- assign name = link[0] -%}
+  {%- assign url = link[1].url | default: link[1] -%}
+  {%- assign target = link[1].target | default: "_blank" -%}
+  {%- assign key = name | downcase -%}
+  {%- assign icon = "fas fa-link" -%}
+  {%- if url contains "arxiv.org" -%}{%- assign icon = "ai ai-arxiv" -%}
+  {%- elsif key == "paper" or key == "pdf" -%}{%- assign icon = "fas fa-file-pdf" -%}
+  {%- elsif key == "project" or key == "website" or key == "page" -%}{%- assign icon = "fas fa-globe" -%}
+  {%- elsif key == "code" or url contains "github.com" -%}{%- assign icon = "fab fa-github" -%}
+  {%- elsif key == "video" -%}{%- assign icon = "fas fa-video" -%}
+  {%- elsif key == "slides" -%}{%- assign icon = "fas fa-person-chalkboard" -%}
+  {%- elsif key == "poster" -%}{%- assign icon = "fas fa-image" -%}
+  {%- elsif key == "benchmark" or key == "dataset" or key == "data" -%}{%- assign icon = "fas fa-database" -%}
+  {%- endif -%}
+  <a class="pub-btn" target="{{ target }}" href="{{ url }}">
+    {%- if url contains "huggingface.co" -%}<span class="pub-btn-emoji">🤗</span>{%- else -%}<i class="{{ icon }}"></i>{%- endif -%}
+    <span>{{ name }}</span></a>
+{%- endfor -%}
+</div>
